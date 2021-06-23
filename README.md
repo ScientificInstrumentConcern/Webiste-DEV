@@ -1,85 +1,70 @@
-# eShop
+# Getting Started with Create React App
 
-eShop official website where you can buy various products at very less price.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-> eCommerce website made with MERN stack with redux as state management system with Progressive Web App feature
+## Available Scripts
 
-![screenshot](https://github.com/Shubhamdutta2000/eShop/blob/main/frontend/public/assets/images/screenshots/carousalAdmin2.PNG)
+In the project directory, you can run:
 
-## Features
+### `npm start`
 
-### v1:
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- Full featured shopping cart
-- Payment Integration:
-  - Stripe
-  - Paypal
-- List down all Products by category
-- Product details
-- Product Rating and Review System
-- Profile Page with update functionality
-- List Down User's Orders
-- Authentication in every step
-- Product Pagination
-- Product Search Functionality
-- Top Carousal
-- Checkout Process:
-  - Shipping Screen
-  - PaymentMethod Screen
-  - PlaceOrder Screen
-- Breadcrumb
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### v2:
+### `npm test`
 
-- Sticky Navbar
-- Custom title in each screen (in meta tag)
-- Logout on JWT expire
-- Descent Search Screen look
-- Add upload image functionality (locally) (by accessing backend url)
-- Admin Panel:
-  - UserList
-  - UserEdit
-  - Product List
-  - Product Edit
-  - Product Create
-  - OrderList
-  - Order Edit (marked As Delivered)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### v3:
+### `npm run build`
 
-- Add Upload functionality ( stored in firebase cloud storage ) in product admin section
-- Add PWA feature to web app for higher engagement which prompt user to add to their mobile home screen
-- Add Offline Page if no internet connection.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Usage
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Install Dependencies
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```
-npm i
-cd frontend
-npm i
-```
+### `npm run eject`
 
-### Run Locally
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-```
-cd ..
-# Run both frontend (3000) and backend (5000) simultaneously
-npm run dev
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Build & Deploy (frontend)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-```
-# Create frontend prod build
-cd frontend
-npm run build
-```
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## DEMO
+## Learn More
 
-- See this app live:- https://eshop-shubham.netlify.app/
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## License Used
-- Apache 2.0 License
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

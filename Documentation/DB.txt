@@ -1,0 +1,39 @@
+User register / login
+
+instruments:
+code: [array]
+size(in mm): [array]
+size(in inch): [array]
+desc: String
+image: String
+optional: Optional**
+
+Optional**:
+code: [array]
+description: [array]
+
+
+Enquiry:
+Name: String
+email: String
+Company: String
+Query: String
+Country:
+City:
+
+
+
+
+APIS:Firebase
+
+adminLogin
+AdminRegister    
+Social Login
+
+Post :
+Instruments
+Enquiry
+
+Update  Delete view:
+Instruments
+
