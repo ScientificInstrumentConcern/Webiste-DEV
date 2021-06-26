@@ -37,3 +37,54 @@ Enquiry
 Update  Delete view:
 Instruments
 
+
+
+
+
+
+
+
+Home page ->
+(Links)
+	Our Products
+	Request Quotation
+	contact us
+	TC
+	PP
+(Contains)
+About us
+6products -> onclick => product details page
+Our Clients
+Footer
+Subfooter
+
+
+Product Page =>
+Write something about our products
+List of cards => onclick => 
+Search button
+
+
+
+
+Contact us
+
+About Us
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
