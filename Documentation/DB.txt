@@ -24,23 +24,22 @@ City:
 
 
 
-APIS:Firebase
+APIS:
 
-adminLogin
-AdminRegister    
-Social Login
+api/admin/login
+/register
+/Social login
+/Forget-Password
 
-Post :
-Instruments
-Enquiry
+Instruments/Update
+Instruments/Post
+Instruments/delete
+Instruments/Get
 
-Update  Delete view:
-Instruments
-
-
-
-
-
+(Public api will send mail)
+public/ContactUs
+public/RequestQuotation
+public/Enquiry
 
 
 
@@ -69,7 +68,7 @@ Search button
 
 Contact us
 
-About Us
+About Us etc
 
 
 
