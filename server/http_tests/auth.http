@@ -1,0 +1,25 @@
+GET http://localhost:5000/api/admin
+
+
+###
+
+POST http://localhost:5000/api/admin/register
+Content-Type: application/json
+
+{
+    "name": "hello",
+    "email": "prasundas@gmail.com",
+    "password": "hello :)"
+}
+
+###
+POST http://localhost:5000/api/admin/login
+Content-Type: application/json
+
+{
+    "email": "prasundas@gmail.com",
+    "password": "hello :)"
+}
+###
+
+POST http://localhost:5000/api/admin/delete

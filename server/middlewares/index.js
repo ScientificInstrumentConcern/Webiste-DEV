@@ -1,2 +1,3 @@
 export * from "./verifyToken.js";
-export * from "./errorHandling.js";
+export * from "./errorHandler.js";
+export * from "./notFoundHandler.js";
