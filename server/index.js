@@ -6,6 +6,8 @@ import * as dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 
 import { homeRouter } from "./routes/home.js";
+import { userRouter } from "./routes/user.js";
+import { errorHandler, notFoundHandler } from "./middlewares/index.js";
 
 dotenv.config();
 const app = express();
@@ -22,6 +24,11 @@ connectDB();
 
 //api endpoints
 app.use(homeRouter);
+app.use("/api/admin/", userRouter);
+
+// error handling middlewares
+app.use(errorHandler);
+app.use(notFoundHandler);
 
 app.listen(5000, () => {
   console.info(`app running on ${environment} mode at port ${PORT} `);

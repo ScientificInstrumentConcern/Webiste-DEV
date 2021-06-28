@@ -1,10 +1,11 @@
 import User from "../model/user.model.js";
 import asyncHandler from "express-async-handler";
+import generateToken from "../utils/generateJwt.js";
 
 /**
  * @description register a new user
- * @route POST /admin/users/register
- * @public
+ * @route POST api/admin/register
+ * @admin
  */
 
 export const createUser = asyncHandler(async (req, res) => {
@@ -34,8 +35,8 @@ export const createUser = asyncHandler(async (req, res) => {
 
 /**
  * @description authenticate existing users and get auth token
- * @route GET /api/users/login
- * @public
+ * @route GET /api/admin/login
+ * @admin
  *
  */
 
@@ -56,31 +57,32 @@ export const authUser = asyncHandler(async (req, res) => {
   }
 });
 
+/**
+ * @description Check the admin users
+ * @route GET /api/admin
+ * @admin
+ *
+ */
+export const getUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({});
+  if (users) {
+    res.status(200).json(users);
+  } else {
+    res.status(404).json({ message: error.message });
+  }
+});
 
-// @purpose: get user
-// @route: user/
-export const getUsers = async (req, res) => {
-    try {
-      const notefetch = await user.find();
-      res.status(200).json(notefetch);
-    } catch (error) {
-      res.status(404).json({ message: error.message });
-    }
-  };
-  
-
-  
-  // @purpose: Delete user
-  // @route: user/delete
-  export const deleteUser = async (req, res) => {
-    const { id: id } = req.params;
-    console.log(req.params);
-    if (!Mongoose.Types.ObjectId.isValid(id))
-      res.status(404).send("No is User found");
-    try {
-      await user.findByIdAndDelete(id);
-      res.status(200).json({ message: "User deleted successfully" });
-    } catch (error) {
-      res.status(404).json({ message: error });
-    }
-  };
+// @purpose: Delete user
+// @route: api/admin/delete
+export const deleteUser = async (req, res) => {
+  const { id: id } = req.params;
+  console.log(req.params);
+  if (!Mongoose.Types.ObjectId.isValid(id))
+    res.status(404).send("No is User found");
+  try {
+    await User.findByIdAndDelete(id);
+    res.status(200).json({ message: "User deleted successfully" });
+  } catch (error) {
+    res.status(404).json({ message: error });
+  }
+};
