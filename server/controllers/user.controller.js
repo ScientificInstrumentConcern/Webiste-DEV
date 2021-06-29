@@ -72,8 +72,15 @@ export const getUsers = asyncHandler(async (req, res) => {
   }
 });
 
-// @purpose: Delete user
-// @route: api/admin/delete
+
+
+
+/**
+ * @description Delete user
+ * @route GET /api/admin/delete
+ * @dev
+ *
+ */
 export const deleteUser = async (req, res) => {
   const { id: id } = req.params;
   console.log(req.params);

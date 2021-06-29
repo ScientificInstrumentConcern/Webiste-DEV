@@ -1,0 +1,17 @@
+GET http://localhost:5000/instruments
+
+###
+POST http://localhost:5000/instruments/add
+Content-Type: application/json
+
+{
+    "name": "Prasun",
+    "desc": "Description",
+    "itemImg": "item er image",
+    "descImg": "Description er image",
+    "code": "#66"
+}
+
+###
+
+DELETE  http://localhost:5000/instruments/60db52cc0a1d92076c080b29
