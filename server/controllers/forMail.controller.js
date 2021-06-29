@@ -44,12 +44,12 @@ import Enquiry from "../model/enquiry.model.js";
  *
  */
  export const enquireAdmin = asyncHandler(async (req, res) => {
-    const { name, email, company, country, city, query } = req.body;
+    const { name, email, company, country, city, specification, instrumentName } = req.body;
   
     const newEnquiry = {
       name: name,
       email: email,
-      conpany: company,
+      company: company,
       country: country,
       city: city,
       specification: specification,
@@ -59,6 +59,7 @@ import Enquiry from "../model/enquiry.model.js";
     const enquiry = new Enquiry(newEnquiry);
     try {
       await enquiry.save();
+      //send mail
       enquiryMail(newEnquiry);
       res.status(201).json(enquiry);
     } catch (error) {

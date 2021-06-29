@@ -1,0 +1,27 @@
+POST http://localhost:5000/contact
+Content-Type: application/json
+
+{
+    "name": "Prasun",
+    "email": "Description",
+    "company": "item er image",
+    "country": "item er image",
+    "city": "Description er image",
+    "query": "#66"
+}
+
+
+
+###
+POST http://localhost:5000/enquiry
+Content-Type: application/json
+
+{
+    "name": "Prasun",
+    "email": "Description",
+    "company": "item er image",
+    "country": "item er image",
+    "city": "Description er image",
+    "specification": "kichu ekta hobeee",
+    "instrumentName": "janina"
+}

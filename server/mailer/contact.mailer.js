@@ -10,7 +10,13 @@ const contactMail = (user) => {
     subject: "You Have a new Enquiry from SINCON",
     html: `<h2>Someone has placed an enquiry  on your site</h2>
     <p> The enquiry details is as below: </p>
-    
+    <br/>
+    Name: ${user.name},       <br/>
+    email: ${user.email},     <br/>
+    conpany: ${user.company}, <br/>
+    country: ${user.country}, <br/>
+    city: ${user.city},       <br/>
+    query: ${user.query},     <br/>
     `,
   };
   sgMail

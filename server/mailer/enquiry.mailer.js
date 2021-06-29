@@ -9,6 +9,13 @@ const enquiryMail = (user) => {
     to: "prasun.4.das@gmail.com",
     subject: "Someone wants to contact you from SINCON",
     html: `<h4> The contact details is as below: </h4>
+    Name: ${user.name},         <br/>
+    email: ${user.email},        <br/>
+    Company: ${user.company},     <br/>
+    Country: ${user.country},   <br/>
+    City: ${user.city},            <br/>
+    Specification: ${user.specification}, <br/>
+    InstrumentName: ${user.instrumentName}  <br/>
     
     `,
   };
