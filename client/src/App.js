@@ -5,7 +5,7 @@ import {
     Switch,
 } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider} from '@material-ui/core';
+import { MuiThemeProvider } from '@material-ui/core';
 import ScrollToTop from './scrolltotop';
 
 import Footer from './components/Footer';

@@ -2,7 +2,7 @@ import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
     palette: {
-       // type: 'dark',
+        // type: 'dark',
         primary: {
             main: '#fff',
         },
@@ -37,7 +37,7 @@ const theme = createMuiTheme({
         },
         subtitle2: {
             fontFamily: 'Lato',
-            fontSize: '21px'
+            fontSize: '21px',
         },
     },
     props: {
