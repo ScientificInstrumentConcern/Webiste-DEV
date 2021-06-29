@@ -1,4 +1,4 @@
-import Instrument from "../model/instrument.model";
+import Instrument from "../model/instrument.model.js";
 import asyncHandler from "express-async-handler";
 
 /**
@@ -70,7 +70,7 @@ export const updateInstrument = asyncHandler(async (req, res) => {
  * @admin
  *
  */
-export const deleteNotes = async (req, res) => {
+export const deleteInstrument = async (req, res) => {
   try {
     const deleteusernote = await Instrument.deleteOne({
       _id: req.params.id,
