@@ -18,91 +18,110 @@ import { Divider } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  const [toggle, setToggle] = useState(false);
+    const [toggle, setToggle] = useState(false);
 
-  //For media querries
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.up('md'));
+    //For media querries
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.up('md'));
 
-  return (
-    <div className={classes.root}>
-      <AppBar position="static" className={classes.height}>
-        <Toolbar variant="dense">
-          {/*Nav Header*/}
-          <Typography variant="h6" className={classes.title}>
-            <Link to="/" style={{ textDecoration: 'none' }}  className={classes.title}>
-              Scientific Instrument Concern
-            </Link>
-          </Typography>
+    return (
+        <div className={classes.root}>
+            <AppBar position="static" className={classes.height}>
+                <Toolbar variant="dense">
+                    {/*Nav Header*/}
+                    <Typography variant="h6" className={classes.title}>
+                        <Link
+                            to="/"
+                            style={{ textDecoration: 'none' }}
+                            className={classes.title}
+                        >
+                            Scientific Instrument Concern
+                        </Link>
+                    </Typography>
 
-          {isMobile ? (
-            <>
-              {/*Nav items*/}
-              <Link to="#" style={{ textDecoration: 'none' }}>
-                <Typography variant="body2" className={classes.navItems}>
-                  Our Services
-                </Typography>
-              </Link>
-              <Link to="/Contact" style={{ textDecoration: 'none' }}>
-                <Typography variant="body2" className={classes.navItems}>
-                  Contact Us
-                </Typography>
-              </Link>
-              <Link to="/Contact" style={{ textDecoration: 'none' }}>
-                <Typography variant="body2" className={classes.navItems}>
-                  Send Enquiry
-                </Typography>
-              </Link>
-            </>
-          ) : (
-            <>
-              {/*Mobile view navbar*/}
-              <IconButton
-                edge="start"
-                className={classes.menuButton}
-                onClick={() => setToggle(true)}
-                color="inherit"
-                aria-label="menu"
-              >
-                <MenuIcon />
-              </IconButton>
+                    {isMobile ? (
+                        <>
+                            {/*Nav items*/}
+                            <Link to="#" style={{ textDecoration: 'none' }}>
+                                <Typography
+                                    variant="body2"
+                                    className={classes.navItems}
+                                >
+                                    Our Services
+                                </Typography>
+                            </Link>
+                            <Link
+                                to="/Contact"
+                                style={{ textDecoration: 'none' }}
+                            >
+                                <Typography
+                                    variant="body2"
+                                    className={classes.navItems}
+                                >
+                                    Contact Us
+                                </Typography>
+                            </Link>
+                            <Link
+                                to="/Contact"
+                                style={{ textDecoration: 'none' }}
+                            >
+                                <Typography
+                                    variant="body2"
+                                    className={classes.navItems}
+                                >
+                                    Send Enquiry
+                                </Typography>
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            {/*Mobile view navbar*/}
+                            <IconButton
+                                edge="start"
+                                className={classes.menuButton}
+                                onClick={() => setToggle(true)}
+                                color="inherit"
+                                aria-label="menu"
+                            >
+                                <MenuIcon />
+                            </IconButton>
 
-              {/*///      FOR MOBILE VIEW    ///*/}
-              <Drawer
-                anchor="right"
-                open={toggle}
-                onClose={() => setToggle(false)}
-              >
-                <List className={classes.list}>
-                  <ListItem button>
-                    <ListItemText
-                      primary={'Our Services'}
-                      className={classes.mobilenavItems}
-                    />
-                  </ListItem>
-                  <Divider />
-                  <ListItem button>
-                    <ListItemText
-                      primary={'Contact Us'}
-                      className={classes.mobilenavItems}
-                    />
-                  </ListItem>
-                  <Divider />
-                  <ListItem button>
-                    <ListItemText
-                      primary={'Send Enquiry'}
-                      className={classes.mobilenavItems}
-                    />
-                  </ListItem>
-                  <Divider />
-                </List>
-              </Drawer>
-            </>
-          )}
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+                            {/*///      FOR MOBILE VIEW    ///*/}
+                            <Drawer
+                                anchor="right"
+                                open={toggle}
+                                onClose={() => setToggle(false)}
+                            >
+                                <List className={classes.list}>
+                                    <ListItem button>
+                                        <ListItemText
+                                            primary={'Our Services'}
+                                            className={classes.mobilenavItems}
+                                        />
+                                    </ListItem>
+                                    <Divider />
+                                    <ListItem button>
+                                        <ListItemText
+                                            primary={'Contact Us'}
+                                            className={classes.mobilenavItems}
+                                        />
+                                    </ListItem>
+                                    <Divider />
+                                    <ListItem button>
+                                        <ListItemText
+                                            primary={'Send Enquiry'}
+                                            className={classes.mobilenavItems}
+                                        />
+                                    </ListItem>
+                                    <Divider />
+                                </List>
+                            </Drawer>
+                        </>
+                    )}
+                </Toolbar>
+            </AppBar>
+        </div>
+    );
 }
