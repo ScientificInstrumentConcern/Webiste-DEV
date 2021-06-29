@@ -8,6 +8,7 @@ import { connectDB } from "./config/db.js";
 import { homeRouter } from "./routes/home.js";
 import { userRouter } from "./routes/user.js";
 import { instrumentRouter } from "./routes/instruments.js";
+import { publicRouter } from "./routes/forMail.js";
 import { errorHandler, notFoundHandler } from "./middlewares/index.js";
 
 dotenv.config();
@@ -27,7 +28,7 @@ connectDB();
 app.use(homeRouter);
 app.use("/admin/", userRouter);
 app.use("/instruments", instrumentRouter);
-
+app.use("/", publicRouter);
 // error handling middlewares
 app.use(errorHandler);
 app.use(notFoundHandler);
