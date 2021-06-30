@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import Button from "@material-ui/core/Button";
@@ -12,16 +12,28 @@ import Typography from "@material-ui/core/Typography";
 
 import { useStyles } from "../Styles/auth";
 
+import * as yup from "yup";
+import { useFormik } from "formik";
+
 export default function Login() {
   const history = useHistory();
   const classes = useStyles();
-  const isMobile = window.innerWidth <= 880;
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const validationSchema = yup.object({
+    email: yup.string().email("Invalid email format").required("Required"),
+    password: yup.string().required("Password is Required"),
+  });
 
-  // submit handler
-  const submitHandler = (event) => {};
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -30,13 +42,24 @@ export default function Login() {
       <Grid item xs={12} sm={12} md={4} component={Paper} elevation={0}>
         <div className={classes.paper}>
           <Typography component="h1" variant="h3">
-            MyDiary
+            SINCON
           </Typography>
           <br />
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-          <form className={classes.form} noValidate>
+
+          <form
+            className={classes.form}
+            noValidate
+            onSubmit={(e) => {
+              e.preventDefault();
+              formik.handleSubmit();
+            }}
+            className={classes.form}
+            noValidate
+            autoComplete="off"
+          >
             <TextField
               variant="outlined"
               margin="normal"
@@ -47,8 +70,10 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
             />
             <TextField
               variant="outlined"
@@ -60,8 +85,10 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -73,7 +100,6 @@ export default function Login() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={submitHandler}
             >
               Login
             </Button>
