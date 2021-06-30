@@ -1,52 +1,65 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
+import { useStyles } from "../Styles/auth";
 
-import { useStyles } from '../Styles/auth';
+import * as yup from "yup";
+import { useFormik } from "formik";
 
-
-const Register = ({history}) => {
+const Register = ({ history }) => {
   const classes = useStyles();
-  const isMobile = window.innerWidth <= 880;
 
-const [username , setUsername] = useState("");
-const [email , setEmail] = useState("");
-const [password , setPassword] = useState("");
+  const validationSchema = yup.object({
+    name: yup.string().email("Invalid email format").required("Required"),
+    email: yup.string().email("Invalid email format").required("Required"),
+    password: yup.string().min(5, 'Password should be of minimum 5 characters length').required("Password is Required"),
+  });
 
-
-
-
-const submitHandler = (event) => {
-
-};
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={false} md={4}  >
-     
-      </Grid>  
+      <Grid item xs={false} sm={false} md={4}></Grid>
 
-      <Grid item xs={12} sm={12} md={4} component={Paper} elevation={0} >
+      <Grid item xs={12} sm={12} md={4} component={Paper} elevation={0}>
         <div className={classes.paper}>
-        <Typography component="h1" variant="h3">
-            MyDiary
+          <Typography component="h1" variant="h3">
+            SINCON
           </Typography>
           <br />
           <Typography component="h1" variant="h5">
-            Sign in
+            Register
           </Typography>
-          <form className={classes.form} noValidate>
-          <TextField
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              formik.handleSubmit();
+            }}
+            className={classes.form}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField
               variant="outlined"
               margin="normal"
               required
@@ -56,8 +69,10 @@ const submitHandler = (event) => {
               name="name"
               autoFocus
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              error={formik.touched.name && Boolean(formik.errors.name)}
+              helperText={formik.touched.name && formik.errors.name}
             />
             <TextField
               variant="outlined"
@@ -68,8 +83,10 @@ const submitHandler = (event) => {
               label="Email Address"
               name="email"
               autoComplete="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
             />
             <TextField
               variant="outlined"
@@ -81,8 +98,10 @@ const submitHandler = (event) => {
               type="password"
               id="password"
               autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -94,19 +113,16 @@ const submitHandler = (event) => {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={submitHandler}
             >
-              Sign In
+              Register as Admin
             </Button>
           </form>
         </div>
       </Grid>
 
-      <Grid item xs={false} sm={false} md={4}  >
-    
-      </Grid>  
+      <Grid item xs={false} sm={false} md={4}></Grid>
     </Grid>
   );
-}
+};
 
 export default Register;
