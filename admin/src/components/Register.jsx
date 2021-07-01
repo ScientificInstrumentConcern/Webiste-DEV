@@ -43,6 +43,7 @@ const Register = () => {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       dispatch(userRegister(values.name, values.email, values.password));
+      history.push('/Login')
     },
   });
 

@@ -17,13 +17,18 @@ import Home from "./components/Home";
 import Newproduct from "./components/NewProduct";
 import ViewProduct from "./components/ViewProduct";
 
+import { useSelector } from "react-redux";
+
 function App() {
+  const { data } = useSelector((state) => state.userLogin);
+  console.log(data);
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
+      <Router >
         <ScrollToTop>
           <Switch>
+          { !data && <Redirect exact from='/' to='/Login' />}
             <Route exact path="/Login" component={Login} />
             <Route exact path="/admin/register" component={Register} />
             <>
