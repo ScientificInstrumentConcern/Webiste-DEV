@@ -34,13 +34,13 @@ export default function Login() {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "prasundas@gmail.com",
+      password: "hello :)",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
       dispatch(userLogin(values.email, values.password));
-      history.push('/')
+      history.push("/");
     },
   });
 
@@ -88,8 +88,6 @@ export default function Login() {
                 e.preventDefault();
                 formik.handleSubmit();
               }}
-              className={classes.form}
-              noValidate
               autoComplete="off"
             >
               <TextField

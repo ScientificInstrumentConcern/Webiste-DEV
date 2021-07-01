@@ -5,9 +5,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
 
 //GET user info from localstorage
-const localLoginData = localStorage.getItem('userData')
-  ? JSON.parse(localStorage.getItem('userData'))
-  : null;
+
+  const localLoginData = JSON.parse(localStorage.getItem("userData"));
 
 const initialState = {
   userLogin: {

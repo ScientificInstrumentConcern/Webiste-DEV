@@ -38,7 +38,6 @@ export const userLogin = (email, password) => async (dispatch, getState) => {
       type: USER_LOGIN_REQUEST,
     });
     const { data } = await loginUser(email, password);
-    console.log(data);
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,

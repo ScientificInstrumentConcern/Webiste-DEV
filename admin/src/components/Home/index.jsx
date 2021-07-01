@@ -70,7 +70,7 @@ function Home() {
             <Grid container spacing={3}>
                 {ourProduct &&
                     ourProduct.slice(0).reverse().map((i) => (
-                        <Grid item xs={12} md={4} lg={4}>
+                        <Grid item xs={12} md={4} lg={4} key={i}>
                            <Link to='view/:id'  style={{textDecoration: 'none'}}>
                             <ProductCard
                                 title={i.title}

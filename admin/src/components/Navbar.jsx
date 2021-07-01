@@ -15,13 +15,19 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { useStyles } from "../Styles/navbar";
 
+
+// REDUX
+import { userLogout } from "../redux/action-creators";
+import { useDispatch } from "react-redux";
+
 export default function Navbar() {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [toggle, setToggle] = useState(false);
 
   //For media querries
@@ -29,7 +35,10 @@ export default function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.up("md"));
 
   // handling logout
-  const logoutHandler = () => {};
+  const logoutHandler = (e) => {
+    dispatch(userLogout());
+    history.push("/Login");
+  };
 
   return (
     <div className={classes.root}>
