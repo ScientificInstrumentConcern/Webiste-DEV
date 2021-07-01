@@ -1,29 +1,39 @@
+import React, { useState } from "react";
 import {
   Container,
   Typography,
   TextField,
   Input,
-  Grid,Button
+  Grid,
+  Button,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles({
-  root: {
-    "& > *": {
-      margin: "8px",
-      width: "100%",
-    },
-  },
-  section: {
-    padding: "5vh 0",
-  },
-  title: {
-    padding: "2rem 0 3rem 0",
-  },
-});
+import { useStyles } from "../../Styles/newProduct";
 
 function Newproduct() {
   const classes = useStyles();
+  const [code, setCode] = useState("");
+  const [name, setName] = useState("");
+  const [desc, setDesc] = useState("");
+  const [instrumentImage, setInstrumentImage] = useState("");
+  const [instrumentDesc, setInstrumentDesc] = useState("");
+
+  const instrumentImageFile = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setInstrumentImage(file)
+    }
+  };
+  const instrumentDetailsFile = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setInstrumentDesc(file)
+    }
+  };
+
+  const save = () => {
+    console.log(code, name , desc, instrumentImage, instrumentDesc);
+  }
+
   return (
     <Container>
       <div className={classes.section}>
@@ -36,10 +46,9 @@ function Newproduct() {
             <Grid item md="4">
               <TextField
                 label="Instrument Code"
-                id="margin-none"
                 className={classes.textField}
-                //value={postTitle}
-                //onChange={(e) => setpostTitle(e.target.value)}
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
                 fullWidth="true"
               />
             </Grid>
@@ -47,16 +56,14 @@ function Newproduct() {
             <Grid item item md="7">
               <TextField
                 label="Instrument Name"
-                id="margin-none"
                 className={classes.textField}
-                //value={postTitle}
-                // onChange={(e) => setpostTitle(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 fullWidth="true"
               />
             </Grid>
           </Grid>
           <br />
-
           <br />
           <TextField
             placeholder="Instrument Description........."
@@ -66,25 +73,35 @@ function Newproduct() {
             className={classes.textArea}
             variant="filled"
             fullWidth="true"
-            // value={postDesc}
-            // onChange={(e) => setpostDesc(e.target.value)}
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
           />
           <br />
-
           <br />
-
-          <Typography variant='h6' for="Instrument-Image">Instrument Image</Typography>
-          <Input type="file" id="Instrument-Image" />
-
+          <Typography variant="h6" for="Instrument-Image">
+            Instrument Image
+          </Typography>
+          <Input 
+          type="file"
+           id="Instrument-Image"
+           onChange={(event) => instrumentImageFile(event)}
+            />
           <br />
-
           <br />
-
-          <Typography variant='h6' for="Instrument-Image">Instrument Details Image</Typography>
-          <Input type="file" id="Instrument-Image" />
-
-          <br/> <br />
-          <Button variant='outlined' style={{background:'#235cb0', color: 'white'}}>Save</Button>
+          <Typography variant="h6" for="Instrument-Image">
+            Instrument Details Image
+          </Typography>
+          <Input type="file"
+           id="Instrument-Details"
+           onChange={(event) => instrumentDetailsFile(event)}
+            />
+          <br /> <br />
+          <Button
+            variant="outlined"
+            style={{ background: "#235cb0", color: "white" }}
+          >
+            Save
+          </Button>
         </Container>
       </div>
     </Container>

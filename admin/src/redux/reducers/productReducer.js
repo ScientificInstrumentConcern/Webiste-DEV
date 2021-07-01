@@ -9,7 +9,6 @@ import {
   FETCH_PRODUCT_REQUEST,
   DELETE_PRODUCT_FAILED,
   UPDATE_PRODUCT_FAILED,
-  FETCH_PRODUCT_REQUEST,
 } from "../action-types";
 
 const initialState = {
@@ -21,7 +20,7 @@ const initialState = {
 const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_PRODUCT:
-      return { loading: false, error: null, data: [...data, action.payload] };
+      return { loading: false, error: null, data: [action.payload] };
 
     case CREATE_PRODUCT_FAILED:
       return {

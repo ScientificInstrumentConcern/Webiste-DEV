@@ -19,17 +19,26 @@ import { Link } from "react-router-dom";
 
 import { useStyles } from "../Styles/navbar";
 
+
+// REDUX
+import { userLogout } from "../redux/action-creators";
+import { useDispatch, useSelector } from "react-redux";
+
 export default function Navbar() {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false);
 
   //For media querries
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.up("md"));
 
+
+  const {userData} = useSelector((state) => state.userLogin)
   // handling logout
-  const logoutHandler = () => {};
+  const logoutHandler = (e) => {
+    dispatch(userLogout());
+  };
 
   return (
     <div className={classes.root}>
