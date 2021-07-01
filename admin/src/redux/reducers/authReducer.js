@@ -6,7 +6,7 @@ import {
   USER_REGISTER_FAILED,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
-} from "../actionTypes/userConstants";
+} from "../action-types";
 
 
 // User login Reducer
@@ -29,6 +29,8 @@ export const userLoginReducer = (state = {}, action) => {
     case USER_LOGIN_FAILED:
       return {
         isAuthenticated: false,
+        loading: false,
+        error: action.payload
       };
     case USER_LOGOUT:
       return {

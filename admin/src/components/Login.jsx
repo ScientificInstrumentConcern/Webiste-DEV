@@ -40,6 +40,7 @@ export default function Login() {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       dispatch(userLogin(values.email, values.password));
+      history.push('/')
     },
   });
 
