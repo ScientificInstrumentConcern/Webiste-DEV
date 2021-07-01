@@ -15,29 +15,29 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { useStyles } from "../Styles/navbar";
 
 
 // REDUX
 import { userLogout } from "../redux/action-creators";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function Navbar() {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
   const [toggle, setToggle] = useState(false);
 
   //For media querries
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.up("md"));
 
-
-  const {userData} = useSelector((state) => state.userLogin)
   // handling logout
   const logoutHandler = (e) => {
     dispatch(userLogout());
+    history.push("/Login");
   };
 
   return (

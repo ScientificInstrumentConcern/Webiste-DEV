@@ -49,17 +49,17 @@ function Newproduct() {
                 className={classes.textField}
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-                fullWidth="true"
+                fullWidth={true}
               />
             </Grid>
             <Grid item md="1"></Grid>
-            <Grid item item md="7">
+            <Grid item  md="7">
               <TextField
                 label="Instrument Name"
                 className={classes.textField}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                fullWidth="true"
+                fullWidth={true}
               />
             </Grid>
           </Grid>
@@ -72,13 +72,13 @@ function Newproduct() {
             rowsMax={9}
             className={classes.textArea}
             variant="filled"
-            fullWidth="true"
+            fullWidth={true}
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
           />
           <br />
           <br />
-          <Typography variant="h6" for="Instrument-Image">
+          <Typography variant="h6" htmlFor="Instrument-Image">
             Instrument Image
           </Typography>
           <Input 
@@ -88,7 +88,7 @@ function Newproduct() {
             />
           <br />
           <br />
-          <Typography variant="h6" for="Instrument-Image">
+          <Typography variant="h6" htmlFor="Instrument-Image">
             Instrument Details Image
           </Typography>
           <Input type="file"
