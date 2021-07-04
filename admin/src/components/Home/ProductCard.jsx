@@ -25,7 +25,6 @@ const useStyles = makeStyles({
 });
 
 function ProductCard(props) {
-  console.log(props);
   const classes = useStyles();
   return (
     <>
