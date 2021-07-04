@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import {
   Container,
   Typography,
@@ -36,9 +37,8 @@ function Newproduct() {
     setInstrumentDesc(imageLink);
   };
 
-  //OnSubmit function
+  //OnSubmit function dispatch all data to api and render to homepage
   const save = () => {
-    console.log(code, name, desc, instrumentImage, instrumentDesc);
     dispatch(createProduct(code, name, desc, instrumentImage, instrumentDesc));
   };
 

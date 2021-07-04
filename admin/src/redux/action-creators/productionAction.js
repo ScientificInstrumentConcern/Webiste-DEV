@@ -20,6 +20,7 @@ import {
  * @description: creates a new instrument in the database
  ***/
 export const createProduct = (code, name, desc, instrumentImage, instrumentDesc) => async (dispatch, getState) => {
+
   try {
     const { data } = await addProduct(code, name, desc, instrumentImage, instrumentDesc);
     console.log(data);

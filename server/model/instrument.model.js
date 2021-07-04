@@ -4,12 +4,18 @@ const InstrumentSchema = new mongoose.Schema(
   {
     name: String,
     desc: String,
-    itemImg: String,
-    descImg: String,
+    itemImg:  {
+      type: String,
+      required: [true, "Your instrument image cannot be blank"],
+    },
+    descImg: {
+      type: String,
+      required: [true, "Your instrument Description cannot be blank"],
+    },
     code: {
       type: String,
       required: [true, "Your instrument Id cannot be blank"],
-      unique: true,
+      //unique: true,
     },
   },
   { timestamps: true }

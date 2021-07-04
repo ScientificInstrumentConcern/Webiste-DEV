@@ -9,7 +9,10 @@ const config = {
 };
 
 export const addProduct = (code, name, desc, instrumentImage, instrumentDesc) => {
-  axios.post(`${url}/add`, {code, name, desc, instrumentImage, instrumentDesc}, config);
+ const instrumentdata =  {code, name, desc, instrumentImage, instrumentDesc};
+  const {data} =  axios.post(`http://localhost:5000/instruments/add`, instrumentdata, config);
+ //return data;
+ console.log(data);
 };
 
 export const getProduct = () => {

@@ -3,7 +3,8 @@ import {Container, Typography,Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import ProductCard from './ProductCard';
 import {Link} from 'react-router-dom'
-
+//Redux stuff
+import { useDispatch, useSelector } from "react-redux";
 
 const useStyles = makeStyles({
     section: {
@@ -60,6 +61,8 @@ const ourProduct = [
 
 function Home() {
     const classes = useStyles();
+    const {loading , data} = useSelector((state)=> state.product);
+    console.log(data);
     return (
         <Container>
                   <div className={classes.section}>
