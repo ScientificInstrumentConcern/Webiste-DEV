@@ -21,7 +21,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   const { data } = useSelector((state) => state.userLogin);
-  console.log(data);
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />

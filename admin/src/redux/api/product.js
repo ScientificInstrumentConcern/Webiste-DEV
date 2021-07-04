@@ -8,8 +8,8 @@ const config = {
   },
 };
 
-export const addProduct = () => {
-  axios.post(`${url}/add`, {}, config);
+export const addProduct = (code, name, desc, instrumentImage, instrumentDesc) => {
+  axios.post(`${url}/add`, {code, name, desc, instrumentImage, instrumentDesc}, config);
 };
 
 export const getProduct = () => {

@@ -3,36 +3,44 @@ import {
   Container,
   Typography,
   TextField,
-  Input,
   Grid,
   Button,
 } from "@material-ui/core";
 import { useStyles } from "../../Styles/newProduct";
 
+//Redux stuff
+import { useDispatch, useSelector } from "react-redux";
+import { createProduct } from "../../redux/action-creators";
+//Firebase file upload function
+import { fileUpload } from "../firebase/firebaseFileUpload";
+
 function Newproduct() {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [code, setCode] = useState("");
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [instrumentImage, setInstrumentImage] = useState("");
   const [instrumentDesc, setInstrumentDesc] = useState("");
 
-  const instrumentImageFile = (e) => {
+  //For Instrument Image link generation
+  const ImageLinkGen = async (e) => {
     const file = e.target.files[0];
-    if (file) {
-      setInstrumentImage(file)
-    }
+    const imageLink = await fileUpload(file);
+    setInstrumentImage(imageLink);
   };
-  const instrumentDetailsFile = (e) => {
+  //For Instrument Description link generation
+  const DescLinkGen = async (e) => {
     const file = e.target.files[0];
-    if (file) {
-      setInstrumentDesc(file)
-    }
+    const imageLink = await fileUpload(file);
+    setInstrumentDesc(imageLink);
   };
 
+  //OnSubmit function
   const save = () => {
-    console.log(code, name , desc, instrumentImage, instrumentDesc);
-  }
+    console.log(code, name, desc, instrumentImage, instrumentDesc);
+    dispatch(createProduct(code, name, desc, instrumentImage, instrumentDesc));
+  };
 
   return (
     <Container>
@@ -53,7 +61,7 @@ function Newproduct() {
               />
             </Grid>
             <Grid item md="1"></Grid>
-            <Grid item  md="7">
+            <Grid item md="7">
               <TextField
                 label="Instrument Name"
                 className={classes.textField}
@@ -81,24 +89,28 @@ function Newproduct() {
           <Typography variant="h6" htmlFor="Instrument-Image">
             Instrument Image
           </Typography>
-          <Input 
-          type="file"
-           id="Instrument-Image"
-           onChange={(event) => instrumentImageFile(event)}
-            />
+          <input
+            type="file"
+            id="Instrument-Image"
+            multiple={false}
+            onChange={ImageLinkGen}
+          />
           <br />
           <br />
           <Typography variant="h6" htmlFor="Instrument-Image">
             Instrument Details Image
           </Typography>
-          <Input type="file"
-           id="Instrument-Details"
-           onChange={(event) => instrumentDetailsFile(event)}
-            />
+          <input
+            type="file"
+            id="Instrument-Details"
+            multiple={false}
+            onChange={DescLinkGen}
+          />
           <br /> <br />
           <Button
             variant="outlined"
             style={{ background: "#235cb0", color: "white" }}
+            onClick={save}
           >
             Save
           </Button>
