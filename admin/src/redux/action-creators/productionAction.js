@@ -50,7 +50,7 @@ export const fetchProduct = () => async (dispatch, getState) => {
   });
   try {
     const { data } = await getProduct();
-    dispatch({
+   dispatch({
       type: FETCH_PRODUCT,
       payload: data,
     });
@@ -62,6 +62,7 @@ export const fetchProduct = () => async (dispatch, getState) => {
           ? error.response.data.message
           : error.message,
     });
+    console.log(error);
   }
 };
 

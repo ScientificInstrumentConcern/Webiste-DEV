@@ -35,5 +35,5 @@ app.use(errorHandler);
 app.use(notFoundHandler);
 
 app.listen(5000, () => {
-  console.info(`app running on ${environment} mode at port ${PORT} `);
+  console.log(`app running on ${environment} mode at port ${PORT} `);
 });

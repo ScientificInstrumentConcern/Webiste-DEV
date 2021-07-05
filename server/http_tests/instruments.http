@@ -1,11 +1,11 @@
-GET http://localhost:5000/instruments
+GET http://localhost:5000/instruments/60e20bfdd4b09642fcd883b1
 
 ###
 POST http://localhost:5000/instruments/add
 Content-Type: application/json
 
 {
-    "code": "#699999",
+    "code": "#69990199",
     "name": "Prasun",
     "desc": "Description",
     "itemImg": "https://firebasestorage.googleapis.com/v0/b/tutorial-8017f.appspot.com/o/w1.png?alt=media&token=274f9c55-ca82-46e5-b886-66064d8e479a",

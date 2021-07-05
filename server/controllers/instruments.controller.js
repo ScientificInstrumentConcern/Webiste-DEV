@@ -68,7 +68,7 @@ export const updateInstrument = asyncHandler(async (req, res) => {
  * @description Delete a specific instrument
  * @route Delete /instruments/delete
  * @admin
- *
+ * @param {}
  */
 export const deleteInstrument = async (req, res) => {
   try {
@@ -81,3 +81,5 @@ export const deleteInstrument = async (req, res) => {
     next(error);
   }
 };
+
+

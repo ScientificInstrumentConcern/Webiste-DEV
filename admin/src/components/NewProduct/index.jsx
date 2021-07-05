@@ -18,6 +18,7 @@ import { fileUpload } from "../firebase/firebaseFileUpload";
 function Newproduct() {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
   const [code, setCode] = useState("");
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
@@ -40,6 +41,7 @@ function Newproduct() {
   //OnSubmit function dispatch all data to api and render to homepage
   const save = () => {
     dispatch(createProduct(code, name, desc, instrumentImage, instrumentDesc));
+    history.push("/");
   };
 
   return (
