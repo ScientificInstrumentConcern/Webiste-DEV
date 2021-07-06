@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import {
   Container,
   Typography,
@@ -17,6 +18,7 @@ import { fileUpload } from "../firebase/firebaseFileUpload";
 function Newproduct() {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
   const [code, setCode] = useState("");
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
@@ -36,10 +38,10 @@ function Newproduct() {
     setInstrumentDesc(imageLink);
   };
 
-  //OnSubmit function
+  //OnSubmit function dispatch all data to api and render to homepage
   const save = () => {
-    console.log(code, name, desc, instrumentImage, instrumentDesc);
     dispatch(createProduct(code, name, desc, instrumentImage, instrumentDesc));
+    history.push("/");
   };
 
   return (

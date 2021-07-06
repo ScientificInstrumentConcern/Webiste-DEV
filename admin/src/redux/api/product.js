@@ -9,12 +9,18 @@ const config = {
 };
 
 export const addProduct = (code, name, desc, instrumentImage, instrumentDesc) => {
-  axios.post(`${url}/add`, {code, name, desc, instrumentImage, instrumentDesc}, config);
+  const instrumentdata = {
+    code: code,
+    name: name,
+    desc: desc,
+    itemImg: instrumentImage,
+    descImg: instrumentDesc
+  };
+  const { data } = axios.post(`${url}/add`, instrumentdata, config);
+  return data;
 };
 
-export const getProduct = () => {
-  axios.get(url, config);
-};
+export const getProduct = () => axios.get(url, config);
 
 export const updateProduct = (id) => {
   axios.put(`${url}/${id}`, {}, config);
