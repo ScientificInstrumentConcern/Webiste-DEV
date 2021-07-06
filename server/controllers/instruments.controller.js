@@ -16,6 +16,26 @@ export const getInstrument = asyncHandler(async (req, res) => {
   }
 });
 
+
+
+/**
+ * @description Get single instrument
+ * @route GET /instruments/:id
+ * @public
+ * @param {number} id  
+*/
+export const getSingleInstrument = asyncHandler(async (req, res) => {
+  const { id: id } = req.params;
+  if (!Mongoose.Types.ObjectId.isValid(id))
+    res.status(404).send("No Instrument with that Id is Found");
+  const instrument = await Instrument.findById(id);
+  res.json(instrument);
+})
+
+
+
+
+
 /**
  * @description Add new instrument to the list
  * @route POST /instruments/add
