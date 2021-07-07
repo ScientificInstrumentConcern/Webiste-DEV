@@ -39,9 +39,9 @@ useEffect(() => {
             data
               .slice(0)
               .reverse()
-              .map((i) => (
-                <Grid item xs={12} md={4} lg={4} key={i}>
-                  <Link to="view/:id" style={{ textDecoration: "none" }}>
+              .map((i, key) => (
+                <Grid item xs={12} md={4} lg={4} key={key}>
+                  <Link to={`view/${i._id}`} style={{ textDecoration: "none" }}>
                     <ProductCard title={i.name} desc={i.desc} img={i.itemImg} />
                   </Link>
                 </Grid>

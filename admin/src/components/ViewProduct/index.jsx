@@ -1,7 +1,12 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Container, Typography, Grid, Paper, Button } from "@material-ui/core";
 import Modal from "react-modal";
-
+//To fetch data from params
+import { useParams } from "react-router";
+import { useHistory } from 'react-router-dom';
+//redux stuffs
+import { useDispatch, useSelector } from "react-redux";
+import {fetchSingleProduct} from '../../redux/action-creators/productionAction'
 
 const customStyles = {
     content: {
@@ -16,28 +21,40 @@ const customStyles = {
 
 
 function ViewProduct() {
+  //constants
+  const {id}  = useParams();
+  const history = useHistory();
+  const dispatch = useDispatch();
   let subtitle;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
 
+  //redux
+  useEffect(() => {
+    dispatch(fetchSingleProduct(id))
+},[dispatch , id])
+
+const {error , data , loading} = useSelector((state) => state.product)
+
+console.log(data);
+
+  //Functions for Modals
+  const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
   }
-
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
     subtitle.style.color = "#f00";
   }
-
   function closeModal() {
     setIsOpen(false);
   }
+
 
   return (
     <Container style={{minHeight:'70vh'}}>
       <br />
       <Grid container>
         <Grid item xs="3">
-          {" "}
           <Typography variant="h4">Code</Typography>{" "}
         </Grid>
         <Grid item xs="1"></Grid>
@@ -77,6 +94,11 @@ function ViewProduct() {
       </Button>
       <Button onClick={openModal} variant='contained'>Edit</Button>
 
+
+
+{/**
+ * Modal code which will be rendered
+ */}
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
