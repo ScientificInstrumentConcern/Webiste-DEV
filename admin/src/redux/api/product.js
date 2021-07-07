@@ -20,7 +20,11 @@ export const addProduct = (code, name, desc, instrumentImage, instrumentDesc) =>
   return data;
 };
 
+//get all products
 export const getProduct = () => axios.get(url, config);
+
+//get single product
+export const getSingleProduct = (id) => axios.get(`${url}/${id}` , config);
 
 export const updateProduct = (id) => {
   axios.put(`${url}/${id}`, {}, config);

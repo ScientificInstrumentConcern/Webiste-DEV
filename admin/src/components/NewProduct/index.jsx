@@ -10,7 +10,7 @@ import {
 import { useStyles } from "../../Styles/newProduct";
 
 //Redux stuff
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { createProduct } from "../../redux/action-creators";
 //Firebase file upload function
 import { fileUpload } from "../firebase/firebaseFileUpload";
