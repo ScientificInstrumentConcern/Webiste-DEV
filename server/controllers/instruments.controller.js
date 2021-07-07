@@ -1,5 +1,6 @@
 import Instrument from "../model/instrument.model.js";
 import asyncHandler from "express-async-handler";
+import  Mongoose  from "mongoose";
 
 /**
  * @description Get all the instruments available
