@@ -16,7 +16,6 @@ export const userRegister = (name, email, password) => async (dispatch) => {
       type: USER_REGISTER_REQUEST,
     });
     const { data } = await registerUser(name, email, password);
-    console.log(data);
     dispatch({
       type: USER_REGISTER_SUCCESS,
       payload: data,

@@ -43,7 +43,6 @@ function ViewProduct() {
   let subtitle;
   //managing state
   const product = useSelector((state) => state.singleProduct);
-console.log(product.loading);
   //setting states
   const [code, setCode] = useState(product.loading? "" : product.data.code);
   const [name, setName] = useState(product.loading? "" : product.data.name);

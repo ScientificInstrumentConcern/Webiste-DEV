@@ -26,7 +26,6 @@ useEffect(() => {
 },[dispatch])
 
   const {data} = useSelector((state) => state.product);
-  console.log(data);
   return (
     <Container>
       <div className={classes.section}>

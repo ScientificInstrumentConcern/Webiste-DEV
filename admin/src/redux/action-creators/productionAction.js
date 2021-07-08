@@ -27,7 +27,6 @@ export const createProduct = (code, name, desc, instrumentImage, instrumentDesc)
 
   try {
     const { data } = await addProduct(code, name, desc, instrumentImage, instrumentDesc);
-    console.log(data);
     dispatch({
       type: CREATE_PRODUCT,
       payload: data,
@@ -64,7 +63,6 @@ export const fetchProduct = () => async (dispatch) => {
           ? error.response.data.message
           : error.message,
     });
-    console.log(error);
   }
 };
 /**
@@ -92,7 +90,6 @@ export const fetchProduct = () => async (dispatch) => {
           ? error.response.data.message
           : error.message,
     });
-    console.log(error);
   }
 };
 /**
