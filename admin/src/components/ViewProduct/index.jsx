@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchSingleProduct,
   UpdateProduct,
-  DeleteProduct
+  DeleteProduct,
 } from "../../redux/action-creators/productionAction";
 //Firebase file upload function
 import { fileUpload } from "../firebase/firebaseFileUpload";
@@ -41,13 +41,15 @@ function ViewProduct() {
   const history = useHistory();
   const dispatch = useDispatch();
   let subtitle;
-
+  //managing state
+  const product = useSelector((state) => state.singleProduct);
+console.log(product.loading);
   //setting states
-  const [code, setCode] = useState("");
-  const [name, setName] = useState("");
-  const [desc, setDesc] = useState("");
-  const [instrumentImage, setInstrumentImage] = useState("");
-  const [instrumentDesc, setInstrumentDesc] = useState("");
+  const [code, setCode] = useState(product.loading? "" : product.data.code);
+  const [name, setName] = useState(product.loading? "" : product.data.name);
+  const [desc, setDesc] = useState(product.loading? "" : product.data.desc);
+  const [instrumentImage, setInstrumentImage] = useState(product.loading? "" : product.data.itemImg);
+  const [instrumentDesc, setInstrumentDesc] = useState(product.loading? "" : product.data.descImg);
 
   //For Instrument Image link generation
   const ImageLinkGen = async (e) => {
@@ -62,6 +64,10 @@ function ViewProduct() {
     setInstrumentDesc(imageLink);
   };
 
+  //redux: calling the action to view
+  useEffect(() => {
+    dispatch(fetchSingleProduct(id));
+  }, [dispatch, id]);
   //OnSubmit function dispatch all data to api and render to homepage
   const save = () => {
     dispatch(
@@ -71,20 +77,9 @@ function ViewProduct() {
   };
   //Function to delete product permanently
   const Delete = () => {
-    dispatch(
-      DeleteProduct(id)
-    );
-    history.push("/")
-  }
-  //redux
-  useEffect(() => {
-    dispatch(fetchSingleProduct(id));
-  }, [dispatch, id]);
-
-  const product = useSelector((state) => state.singleProduct);
-
-  console.log(product);
-
+    dispatch(DeleteProduct(id));
+    history.push("/");
+  };
   //Functions for Modals
   const [modalIsOpen, setIsOpen] = useState(false);
   const [fordelete, setdelete] = useState(false);
@@ -208,7 +203,6 @@ function ViewProduct() {
             required
             label="Instrument Description"
             name="code"
-            autoFocus
             fullWidth={true}
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
