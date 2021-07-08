@@ -104,9 +104,9 @@ function Newproduct() {
           </Typography>
           <input
             type="file"
-            id="Instrument-Details"
+            id="Instrument-Image"
             multiple={false}
-            onChange={DescLinkGen}
+            onChange={ImageLinkGen}
           />
           <br /> <br />
           <Button

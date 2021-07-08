@@ -7,6 +7,7 @@ import {
   Paper,
   Button,
 } from "@material-ui/core";
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Modal from "react-modal";
 //To fetch data from params
 import { useParams } from "react-router";
@@ -14,7 +15,11 @@ import { useHistory } from "react-router-dom";
 //redux stuffs
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleProduct } from "../../redux/action-creators/productionAction";
-
+//Firebase file upload function
+import { fileUpload } from "../firebase/firebaseFileUpload";
+//TODO: write update reducer and connect
+//TODO: add missing link
+//TODO: add delete function and reducer
 const customStyles = {
   content: {
     top: "50%",
@@ -33,14 +38,40 @@ function ViewProduct() {
   const dispatch = useDispatch();
   let subtitle;
 
+  //setting states
+  const [code, setCode] = useState("");
+  const [name, setName] = useState("");
+  const [desc, setDesc] = useState("");
+  const [instrumentImage, setInstrumentImage] = useState("");
+  const [instrumentDesc, setInstrumentDesc] = useState("");
+
+
+    //For Instrument Image link generation
+    const ImageLinkGen = async (e) => {
+      const file = e.target.files[0];
+      const imageLink = await fileUpload(file);
+      setInstrumentImage(imageLink);
+    };
+    //For Instrument Description link generation
+    const DescLinkGen = async (e) => {
+      const file = e.target.files[0];
+      const imageLink = await fileUpload(file);
+      setInstrumentDesc(imageLink);
+    };
+
+ //OnSubmit function dispatch all data to api and render to homepage
+  const save = () => {
+    dispatch(createProduct(code, name, desc, instrumentImage, instrumentDesc));
+    history.push("/");
+  };
   //redux
   useEffect(() => {
     dispatch(fetchSingleProduct(id));
   }, [dispatch, id]);
 
-  const { error, data, loading } = useSelector((state) => state.product);
+  const product = useSelector((state) => state.singleProduct);
 
-  console.log(data);
+  console.log(product);
 
   //Functions for Modals
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -62,16 +93,16 @@ function ViewProduct() {
     setdelete(false);
   }
 
-  return (
+  return  product.loading ? <CircularProgress color="secondary" /> : (
     <Container style={{ minHeight: "70vh" }}>
       <br />
       <Grid container>
         <Grid item xs="3">
-          <Typography variant="h4">{data.code}</Typography>{" "}
+          <Typography variant="h4">{product.data.code}</Typography>{" "}
         </Grid>
         <Grid item xs="1"></Grid>
         <Grid item xs="7">
-          <Typography variant="h4">{data.name}</Typography>
+          <Typography variant="h4">{product.data.name}</Typography>
         </Grid>
       </Grid>
       <br />
@@ -79,13 +110,13 @@ function ViewProduct() {
         <Grid item md="6">
           <Typography variant="h5">Technical Description</Typography>
           <Container>
-            <Typography variant="body1">{data.desc}</Typography>
+            <Typography variant="body1">{product.data.desc}</Typography>
 
             <br />
             <br />
             <Paper elevation={3} style={{ padding: "0.5rem" }}>
               <img
-                src={data.descImg}
+                src={product.data.descImg}
                 alt="Instrument Description"
                 style={{ width: "100%", height: "100%" }}
               />
@@ -101,7 +132,7 @@ function ViewProduct() {
             style={{ marginTop: "3rem" }}
           >
             <img
-              src={data.itemImg}
+              src={product.data.itemImg}
               alt="Instrument Cover image"
               style={{ height: "100%", width: "100%" }}
             />
@@ -144,10 +175,9 @@ function ViewProduct() {
             label="Instrument Code"
             name="code"
             autoFocus
-            // value={formik.values.email}
-            //onChange={formik.handleChange}
-            //error={formik.touched.email && Boolean(formik.errors.email)}
-            // helperText={formik.touched.email && formik.errors.email}
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+            fullWidth={true}
           />
           <TextField
             variant="outlined"
@@ -156,11 +186,9 @@ function ViewProduct() {
             fullWidth
             label="Instrument name"
             name="code"
-            autoFocus
-            // value={formik.values.email}
-            //onChange={formik.handleChange}
-            //error={formik.touched.email && Boolean(formik.errors.email)}
-            // helperText={formik.touched.email && formik.errors.email}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            fullWidth={true}
           />
 
           <TextField
@@ -171,16 +199,25 @@ function ViewProduct() {
             label="Instrument Description"
             name="code"
             autoFocus
-            // value={formik.values.email}
-            //onChange={formik.handleChange}
-            //error={formik.touched.email && Boolean(formik.errors.email)}
-            // helperText={formik.touched.email && formik.errors.email}
+            fullWidth={true}
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
           />
           <Typography variant="subtitle2">For image Desciption</Typography>
-          <input type="file" name="" id="" />
+          <input
+            type="file"
+            id="Instrument-Image"
+            multiple={false}
+            onChange={ImageLinkGen}
+          />
           <br />
           <Typography variant="subtitle2">For Cover Image</Typography>
-          <input type="file" name="" id="" />
+          <input
+            type="file"
+            id="Instrument-Image"
+            multiple={false}
+            onChange={ImageLinkGen}
+          />
         </form>
         <br />
         <Button variant="contained" color='primary' onClick={closeModal} style={{marginRight:'1rem'}}>

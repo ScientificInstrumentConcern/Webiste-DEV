@@ -76,11 +76,12 @@ export const fetchProduct = () => async (dispatch, getState) => {
  *
  */
  export const fetchSingleProduct = (id) => async (dispatch, getState) => {
-  dispatch({
-    type: FETCH_SINGLE_PRODUCT_REQUEST,
-  });
   try {
-    const { data } = await getSingleProduct(id);
+    dispatch({
+      type: FETCH_SINGLE_PRODUCT_REQUEST,
+    });
+    
+    const {data} = await getSingleProduct(id);
    dispatch({
       type: FETCH_SINGLE_PRODUCT,
       payload: data,

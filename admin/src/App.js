@@ -4,6 +4,7 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
+import React, {useEffect} from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider } from "@material-ui/core";
 import ScrollToTop from "./scrolltotop";
@@ -17,10 +18,16 @@ import Home from "./components/Home";
 import Newproduct from "./components/NewProduct";
 import ViewProduct from "./components/ViewProduct";
 
-import { useSelector } from "react-redux";
+//Redux stuff
+import {useSelector } from "react-redux";
+
 
 function App() {
+  //constants
+
+//reduxStuffs
   const { data } = useSelector((state) => state.userLogin);
+
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />

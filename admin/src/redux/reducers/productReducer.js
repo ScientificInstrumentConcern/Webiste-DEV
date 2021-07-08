@@ -8,9 +8,6 @@ import {
   FETCH_PRODUCT_REQUEST,
   DELETE_PRODUCT_FAILED,
   UPDATE_PRODUCT_FAILED,
-  FETCH_SINGLE_PRODUCT,
-  FETCH_SINGLE_PRODUCT_REQUEST,
-  FETCH_SINGLE_PRODUCT_FAILED
 } from "../action-types";
 
 const initialState = {
@@ -26,15 +23,11 @@ const productReducer = (state = initialState, action) => {
 
     case CREATE_PRODUCT_FAILED:
       return {
-        loading: false,
         error: action.payload,
-        data: [],
       };
     case FETCH_PRODUCT_REQUEST:
       return {
         loading: true,
-        error: null,
-        data: [],
       };
     case FETCH_PRODUCT:
       return {
@@ -44,9 +37,7 @@ const productReducer = (state = initialState, action) => {
       };
     case FETCH_PRODUCT_FAILED:
       return {
-        loading: false,
         error: action.payload,
-        data: [],
       };
     case UPDATE_PRODUCT:
       return {
@@ -72,25 +63,6 @@ const productReducer = (state = initialState, action) => {
         error: action.payload,
         data: [],
       };
-      case FETCH_SINGLE_PRODUCT_REQUEST:
-        return {
-          loading: true,
-          error: null,
-          data: [],
-        };
-      case FETCH_SINGLE_PRODUCT:
-        return {
-          loading: false,
-          error: null,
-          data: action.payload,
-        };
-      case FETCH_SINGLE_PRODUCT_FAILED:
-        return {
-          loading: false,
-          error: action.payload,
-          data: [],
-        };
-
     default:
       return state;
   }
