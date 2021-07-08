@@ -1,13 +1,9 @@
 import {
   FETCH_PRODUCT,
   CREATE_PRODUCT,
-  DELETE_PRODUCT,
-  UPDATE_PRODUCT,
   CREATE_PRODUCT_FAILED,
   FETCH_PRODUCT_FAILED,
   FETCH_PRODUCT_REQUEST,
-  DELETE_PRODUCT_FAILED,
-  UPDATE_PRODUCT_FAILED,
 } from "../action-types";
 
 const initialState = {
@@ -38,30 +34,6 @@ const productReducer = (state = initialState, action) => {
     case FETCH_PRODUCT_FAILED:
       return {
         error: action.payload,
-      };
-    case UPDATE_PRODUCT:
-      return {
-        loading: false,
-        error: null,
-        data: action.payload,
-      };
-    case UPDATE_PRODUCT_FAILED:
-      return {
-        loading: false,
-        error: action.payload,
-        data: [],
-      };
-    case DELETE_PRODUCT:
-      return {
-        loading: false,
-        error: null,
-        data: action.payload,
-      };
-    case DELETE_PRODUCT_FAILED:
-      return {
-        loading: false,
-        error: action.payload,
-        data: [],
       };
     default:
       return state;

@@ -106,7 +106,7 @@ function Newproduct() {
             type="file"
             id="Instrument-Image"
             multiple={false}
-            onChange={ImageLinkGen}
+            onChange={DescLinkGen}
           />
           <br /> <br />
           <Button
