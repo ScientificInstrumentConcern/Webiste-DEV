@@ -16,3 +16,6 @@ export const fileUpload = async (fileToCompress) => {
   const fileUrl = await fileRef.getDownloadURL();
   return fileUrl;
 };
+
+
+
