@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {fetchProduct} from '../../redux/action-creators'
 //Styling components
 import { makeStyles } from "@material-ui/core/styles";
+import ProductsLoader from "../utils/Products.loader";
 const useStyles = makeStyles({
   section: {
     padding: "5vh 0",
@@ -25,8 +26,8 @@ useEffect(() => {
     dispatch(fetchProduct())
 },[dispatch])
 
-  const {data} = useSelector((state) => state.product);
-  return (
+  const {data, loading} = useSelector((state) => state.product);
+  return loading? <ProductsLoader /> : (
     <Container>
       <div className={classes.section}>
         <Typography variant="h3" align="center" className={classes.title}>

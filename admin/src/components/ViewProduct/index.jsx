@@ -7,7 +7,6 @@ import {
   Paper,
   Button,
 } from "@material-ui/core";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import Modal from "react-modal";
 //To fetch data from params
 import { useParams } from "react-router";
@@ -21,9 +20,7 @@ import {
 } from "../../redux/action-creators/productionAction";
 //Firebase file upload function
 import { fileUpload } from "../firebase/firebaseFileUpload";
-//TODO: write update reducer and connect
-//TODO: add missing link
-//TODO: add delete function and reducer
+import ProductsLoader from "../utils/Products.loader";
 const customStyles = {
   content: {
     top: "50%",
@@ -99,7 +96,7 @@ function ViewProduct() {
   }
 
   return product.loading ? (
-    <CircularProgress color="secondary" />
+    <ProductsLoader/>
   ) : (
     <Container style={{ minHeight: "70vh" }}>
       <br />
