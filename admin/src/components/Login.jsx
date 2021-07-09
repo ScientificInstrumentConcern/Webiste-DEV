@@ -34,8 +34,8 @@ export default function Login() {
 
   const formik = useFormik({
     initialValues: {
-      email: "prasundas@gmail.com",
-      password: "hello :)",
+      email: "",
+      password: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {

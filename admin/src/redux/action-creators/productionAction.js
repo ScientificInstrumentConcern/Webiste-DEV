@@ -23,11 +23,10 @@ import {
 /****
  * @description: creates a new instrument in the database
  ***/
-export const createProduct = (code, name, desc, instrumentImage, instrumentDesc) => async (dispatch, getState) => {
+export const createProduct = (code, name, desc, instrumentImage, instrumentDesc) => async (dispatch) => {
 
   try {
     const { data } = await addProduct(code, name, desc, instrumentImage, instrumentDesc);
-    console.log(data);
     dispatch({
       type: CREATE_PRODUCT,
       payload: data,
@@ -44,11 +43,9 @@ export const createProduct = (code, name, desc, instrumentImage, instrumentDesc)
 };
 
 /**
- *
  * @description: Views all the product from database
- *
  */
-export const fetchProduct = () => async (dispatch, getState) => {
+export const fetchProduct = () => async (dispatch) => {
   dispatch({
     type: FETCH_PRODUCT_REQUEST,
   });
@@ -66,7 +63,6 @@ export const fetchProduct = () => async (dispatch, getState) => {
           ? error.response.data.message
           : error.message,
     });
-    console.log(error);
   }
 };
 /**
@@ -75,7 +71,7 @@ export const fetchProduct = () => async (dispatch, getState) => {
  * @param {string} id
  *
  */
- export const fetchSingleProduct = (id) => async (dispatch, getState) => {
+ export const fetchSingleProduct = (id) => async (dispatch) => {
   try {
     dispatch({
       type: FETCH_SINGLE_PRODUCT_REQUEST,
@@ -94,20 +90,14 @@ export const fetchProduct = () => async (dispatch, getState) => {
           ? error.response.data.message
           : error.message,
     });
-    console.log(error);
   }
 };
-
-
-
-
-
 /**
  * @description: Updates the data of the product
  */
-export const UpdateProduct = () => async (dispatch, getState) => {
+export const UpdateProduct = (id , code, name, desc, instrumentImage, instrumentDesc ) => async (dispatch) => {
   try {
-    const { data } = await updateProduct();
+    const { data } = await updateProduct(id , code, name, desc, instrumentImage, instrumentDesc);
     dispatch({
       type: UPDATE_PRODUCT,
       payload: data,
@@ -122,13 +112,12 @@ export const UpdateProduct = () => async (dispatch, getState) => {
     });
   }
 };
-
 /**
  * @description: Deletes the product
  */
-export const DeleteProduct = () => async (dispatch, getState) => {
+export const DeleteProduct = (id) => async (dispatch) => {
     try {
-        const { data } = await deleteProduct();
+        const { data } = await deleteProduct(id);
         dispatch({
           type: DELETE_PRODUCT,
           payload: data,
