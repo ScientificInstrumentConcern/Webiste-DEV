@@ -34,6 +34,6 @@ app.use("/", publicRouter);
 app.use(errorHandler);
 app.use(notFoundHandler);
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log(`app running on ${environment} mode at port ${PORT} `);
 });
