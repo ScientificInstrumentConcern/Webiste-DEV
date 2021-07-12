@@ -4,7 +4,6 @@ import Hero from '../../assets/Hero.png';
 export const useStyles = makeStyles((theme) => ({
     hero: {
         width: '100%',
-        background: `url(${Hero})`,
         height: '69vh',
         backgroundSize: 'cover',
         backgroundPosition: 'center',

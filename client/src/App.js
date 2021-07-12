@@ -18,12 +18,13 @@ import theme from './theme';
 function App() {
     return (
         <MuiThemeProvider theme={theme}>
+            <CssBaseline />
             <Router>
                 <ScrollToTop>
                     <Navbar />
                     <Switch>
                         <Route exact path="/" component={Home} />
-                        <Route exact path="/catalouge" component={Catalouge} />
+                        <Route exact path="/Products" component={Catalouge} />
                     </Switch>
                     <Footer />
                 </ScrollToTop>

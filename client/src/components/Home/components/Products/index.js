@@ -2,6 +2,7 @@ import { Typography, Grid } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard';
 
 const useStyles = makeStyles({
@@ -74,17 +75,13 @@ function Products() {
             </Grid>
 
             <br />
-
-            <a
-                href="https://firebasestorage.googleapis.com/v0/b/tutorial-8017f.appspot.com/o/Final%20Catalogue%20SINCON-compressed.pdf?alt=media&token=1dd52908-bea5-4783-bdd0-4c58a8d52533"
-                target="blank"
-            >
+            <Link to="/Products" style={{textDecoration: 'none'}}>
                 <Typography align="center">
                     <Button color="secondary" variant="contained">
                         View more
                     </Button>
                 </Typography>
-            </a>
+            </Link>
         </div>
     );
 }

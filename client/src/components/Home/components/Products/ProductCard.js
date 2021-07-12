@@ -1,12 +1,12 @@
-import { Typography } from '@material-ui/core';
+import { Typography, Button } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -34,7 +34,7 @@ function ProductCard(props) {
                     <CardMedia
                         className={classes.media}
                         image={props.img}
-                        title="Contemplative Reptile"
+                        title="Instrument Image"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
@@ -50,9 +50,11 @@ function ProductCard(props) {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    {/*  <Button size="small" color="secondary">
-          Learn More
-        </Button>*/}
+                    <Link to="/products" style={{textDecoration: 'none'}}>
+                        <Button size="small" color="secondary">
+                            Learn More
+                        </Button>
+                    </Link>
                 </CardActions>
             </Card>
         </>
