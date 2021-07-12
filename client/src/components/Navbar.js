@@ -49,7 +49,7 @@ export default function Navbar() {
                                     variant="body2"
                                     className={classes.navItems}
                                 >
-                                    Our Services
+                                    Our Products
                                 </Typography>
                             </Link>
                             <Link

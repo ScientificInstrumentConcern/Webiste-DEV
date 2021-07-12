@@ -39,14 +39,18 @@ function Footer() {
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
-                                {' '}
-                                About Us{' '}
+                                
+                                About 
                             </Typography>
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
-                                {' '}
-                                Contact Us{' '}
+                                Contact Us
+                            </Typography>
+                            <Typography
+                                className={clsx(classes.list, classes.top)}
+                            >
+                               Clients
                             </Typography>
                         </Grid>
                         {/*Column-2 Company column */}
@@ -54,8 +58,7 @@ function Footer() {
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
-                                {' '}
-                                FAQ{' '}
+                                FAQ
                             </Typography>
 
                             <Typography
@@ -85,7 +88,7 @@ function Footer() {
                             >
                                 <PhoneIcon
                                     className={clsx(classes.right, classes.top)}
-                                />{' '}
+                                />
                             </a>
                             <a
                                 class="mailto"
