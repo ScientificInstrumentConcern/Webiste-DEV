@@ -33,7 +33,7 @@ const theme = createMuiTheme({
         },
         h6: {
             fontFamily: 'Prata',
-            textDecoration: 'underline'
+            textDecoration: 'underline',
         },
         subtitle1: {
             fontFamily: 'Lato',
