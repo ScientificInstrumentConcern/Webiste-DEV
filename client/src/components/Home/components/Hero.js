@@ -1,11 +1,14 @@
-import { Typography, Button } from '@material-ui/core';
+import { Typography, Button, IconButton } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useStyles } from '../../../Styles/Home/heroStyling';
-
+import { animateScroll as scroll } from 'react-scroll';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 function Hero() {
     const classes = useStyles();
-
+    function Scroll() {
+        scroll.scrollMore(700);
+    }
     return (
         <div>
             <div className={classes.hero}>
@@ -20,18 +23,35 @@ function Hero() {
                     >
                         Always a step ahead in technology
                     </Typography>
-                        <Typography align="center">
-                            <Link to='/products' style={{textDecoration: 'none'}}>
+                    <Typography align="center" variant="h6">
+                        <Link to="/products" style={{ textDecoration: 'none' }}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                className={classes.btn}
+                            >
+                                View Products
+                            </Button>
+                        </Link>
+
+                        <Link to="/products" style={{ textDecoration: 'none' }}>
                             <Button
                                 variant="outlined"
                                 color="primary"
                                 className={classes.btn}
                             >
-                               View Products
+                                Contact Us
                             </Button>
-                            </Link>
-                        </Typography>
+                        </Link>
+                    </Typography>
                 </div>
+                <Typography align="center">
+                    <Link onClick={Scroll} smooth={true} durations={500}>
+                        <IconButton>
+                            <ExpandMoreIcon color="primary" fontSize="large" />
+                        </IconButton>
+                    </Link>
+                </Typography>
             </div>
         </div>
     );

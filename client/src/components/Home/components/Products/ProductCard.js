@@ -50,7 +50,7 @@ function ProductCard(props) {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Link to="/products" style={{textDecoration: 'none'}}>
+                    <Link to="/products" style={{ textDecoration: 'none' }}>
                         <Button size="small" color="secondary">
                             Learn More
                         </Button>

@@ -1,11 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
-
+import Hero from '../assets/Footer.jpg';
 export const useStyles = makeStyles((theme) => ({
     footer: {
         background: '#272727',
         color: '#fff',
         padding: '2em 3em',
-        boxShadow: '0 3px 5px 4px #d0f7ff',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        background: `linear-gradient(rgba(0, 16, 49, 0.9), rgba(0, 0, 0, 0.9)),url(${Hero})`,
     },
     store: {
         height: '2rem',

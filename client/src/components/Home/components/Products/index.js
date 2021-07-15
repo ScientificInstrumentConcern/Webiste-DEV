@@ -75,7 +75,7 @@ function Products() {
             </Grid>
 
             <br />
-            <Link to="/Products" style={{textDecoration: 'none'}}>
+            <Link to="/Products" style={{ textDecoration: 'none' }}>
                 <Typography align="center">
                     <Button color="secondary" variant="contained">
                         View more
