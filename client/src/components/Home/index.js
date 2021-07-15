@@ -15,8 +15,8 @@ function Home() {
             <Container>
                 <About />
                 <Products />
-                <Clients />
             </Container>
+            <Clients />
         </div>
     );
 }

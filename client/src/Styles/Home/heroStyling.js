@@ -1,22 +1,24 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Hero from '../../assets/Hero.png';
+import Hero from '../../assets/Cover.png';
 
 export const useStyles = makeStyles((theme) => ({
-    root:{
-        background: '#fff'
+    root: {
+        //  background: '#fff'
     },
     hero: {
         width: '100%',
-        height: '69vh',
+        height: '100vh',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        background: `linear-gradient(rgba(4, 8, 40, 0.8), rgba(0, 0, 0, 0.8)),url(${Hero})`,
+        background: `linear-gradient(rgba(0, 30, 90, 0.9), rgba(0, 30, 90, 0.6)),url(${Hero})`,
     },
     section: {
-        padding: '20vh 0 0 0',
+        padding: '33vh 0  10vh 0',
     },
     btn: {
-        padding: '0.5rem 0.9rem',
-        margin: '6vh 0 0 0',
+        padding: '0.5rem 1.2rem',
+        margin: '6vh 2rem',
+        fontWeight: '600',
+        fontSize: '15px',
     },
 }));

@@ -28,7 +28,7 @@ export default function Navbar() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" className={classes.height}>
+            <AppBar position="absolute" className={classes.height}>
                 <Toolbar variant="dense">
                     {/*Nav Header*/}
                     <Typography variant="h6" className={classes.title}>
@@ -82,7 +82,7 @@ export default function Navbar() {
                                 edge="start"
                                 className={classes.menuButton}
                                 onClick={() => setToggle(true)}
-                                color="inherit"
+                                color="primary"
                                 aria-label="menu"
                             >
                                 <MenuIcon />

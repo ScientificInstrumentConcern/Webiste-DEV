@@ -20,37 +20,76 @@ import thirteen from '../../../../assets/slides/13.png';
 import fourteen from '../../../../assets/slides/14.png';
 function Clients() {
     return (
-        <div>
-            <Typography align="center" variant="h3" component="h3">
+        <div style={{ margin: '5rem 0' }}>
+            <Typography
+                align="center"
+                variant="h3"
+                component="h3"
+                style={{ margin: '3rem 0' }}
+            >
                 Our Clients
             </Typography>
             <OwlCarousel
-                className="owl-theme"
+                className="owl-height"
                 autoplay
                 loop
-                margin={10}
+                margin={30}
                 nav
-                items={5}
+                center
+                responsiveClass
+                items={6}
+                lazyLoad
             >
                 <div class="item">
-                    <img src={four} alt='Gov1'/>
+                    <img src={one} alt="Private" />
                 </div>
                 <div class="item">
-                    <img src={five} alt='Gov2'/>
+                    <img src={nine} alt="Gov1" />
                 </div>
                 <div class="item">
-                    <img src={six} alt='Private'/>
+                    <img
+                        src={three}
+                        alt="Private"
+                        style={{ marginTop: '2rem' }}
+                    />
                 </div>
                 <div class="item">
-                    <img src={one} alt='Private'/>
+                    <img src={four} alt="Gov1" />
                 </div>
                 <div class="item">
-                    <img src={two} alt='Private'/>
+                    <img src={five} alt="Gov1" />
                 </div>
                 <div class="item">
-                    <img src={three} alt='Private'/>
+                    <img src={six} alt="Gov1" />
                 </div>
-
+                <div class="item">
+                    <img
+                        src={two}
+                        alt="Private"
+                        style={{ marginTop: '2rem' }}
+                    />
+                </div>
+                <div class="item">
+                    <img src={seven} alt="Gov1" />
+                </div>
+                <div class="item">
+                    <img src={eight} alt="Gov1" />
+                </div>
+                <div class="item">
+                    <img src={ten} alt="Gov1" />
+                </div>
+                <div class="item">
+                    <img src={eleven} alt="Gov1" />
+                </div>
+                <div class="item">
+                    <img src={twelve} alt="Gov1" />
+                </div>
+                <div class="item">
+                    <img src={thirteen} alt="Gov1" />
+                </div>
+                <div class="item">
+                    <img src={fourteen} alt="Gov1" />
+                </div>
             </OwlCarousel>
         </div>
     );

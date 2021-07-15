@@ -16,6 +16,7 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 
 //Styling
 import { useStyles } from '../Styles/footerStyling';
+import { Container } from '@material-ui/core';
 
 function Footer() {
     const classes = useStyles();
@@ -23,7 +24,7 @@ function Footer() {
     const [Label, setLabel] = useState('');
 
     return (
-        <>
+        <div style={{ background: '#00132f' }}>
             <div className={classes.footer}>
                 <Grid container spacing={1}>
                     <Grid container className={classes.top}>
@@ -32,48 +33,27 @@ function Footer() {
                         {/*Column-1 logo column */}
                         <Grid item spacing={10} md={6} lg={3} xs={8}>
                             {/*<img src={Logo} className={classes.logo}/>*/}
-                            SINCON
+                            <Typography variant="subtitle2">SINCON</Typography>
                         </Grid>
                         {/*Column-2 Company column */}
                         <Grid item spacing={3} md={6} lg={3} xs={8}>
+                            <Typography variant="h6">
+                                Important Links
+                            </Typography>
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
-                                
-                                About 
+                                About
                             </Typography>
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
                                 Contact Us
                             </Typography>
-                            <Typography
-                                className={clsx(classes.list, classes.top)}
-                            >
-                               Clients
-                            </Typography>
                         </Grid>
                         {/*Column-2 Company column */}
                         <Grid item spacing={3} md={6} lg={3} xs={8}>
-                            <Typography
-                                className={clsx(classes.list, classes.top)}
-                            >
-                                FAQ
-                            </Typography>
-
-                            <Typography
-                                className={clsx(classes.list, classes.top)}
-                            >
-                                {' '}
-                                Terms and condition{' '}
-                            </Typography>
-
-                            <Typography
-                                className={clsx(classes.list, classes.top)}
-                            >
-                                {' '}
-                                Privacy Policy{' '}
-                            </Typography>
+                            <Typography variant="h6">Contact Info</Typography>
                         </Grid>
                         {/*Column-3 Social column */}
                         <Grid item md={6} lg={3} xs={8} spacing={3}>
@@ -130,7 +110,32 @@ function Footer() {
                     </Grid>
                 </Grid>
             </div>
-        </>
+            <Container maxWidth="xl" style={{ padding: '1rem 0' }}>
+                <Grid container>
+                    <Grid item xs={5}>
+                        <Typography color="primary">
+                            Copyright @2021 SINCON. All Rights Reserved.
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography align="right">
+                            <Grid container>
+                                <Grid item xs={6}>
+                                    <Typography color="primary">
+                                        Terms and condition
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <Typography color="primary">
+                                        Privacy Policy
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Container>
+        </div>
     );
 }
 
