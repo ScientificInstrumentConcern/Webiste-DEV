@@ -2,6 +2,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Hero from '../../assets/Hero.png';
 
 export const useStyles = makeStyles((theme) => ({
+    root:{
+        background: '#fff'
+    },
     hero: {
         width: '100%',
         height: '69vh',
