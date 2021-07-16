@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
         height: '94%',
     },
     leftGrid: {
-        marginTop: '1rem',
+        marginTop: '2rem',
     },
     leftHeading: {
         fontSize: '3rem',

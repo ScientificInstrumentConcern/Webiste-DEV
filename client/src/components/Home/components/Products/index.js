@@ -64,7 +64,7 @@ function Products() {
             <Grid container spacing={3}>
                 {ourProduct &&
                     ourProduct.map((i) => (
-                        <Grid item xs={6} md={4} lg={4}>
+                        <Grid item xs={12} md={4} lg={4}>
                             <ProductCard
                                 title={i.title}
                                 desc={i.desc}

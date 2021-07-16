@@ -110,22 +110,23 @@ function Footer() {
                     </Grid>
                 </Grid>
             </div>
-            <Container maxWidth="xl" style={{ padding: '1rem 0' }}>
+            <Container maxWidth="xl" style={{ padding: '1rem ' }}>
                 <Grid container>
-                    <Grid item xs={5}>
+                    <Grid item xs={7}>
                         <Typography color="primary">
-                            Copyright @2021 SINCON. All Rights Reserved.
+                            Copyright @2021 SINCON.
+                            <br/> All Rights Reserved.
                         </Typography>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={5}>
                         <Typography align="right">
                             <Grid container>
-                                <Grid item xs={6}>
+                                <Grid item md={8}>
                                     <Typography color="primary">
                                         Terms and condition
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item md={4}>
                                     <Typography color="primary">
                                         Privacy Policy
                                     </Typography>
