@@ -13,11 +13,11 @@ export const useStyles = makeStyles((theme) => ({
         background: `linear-gradient(rgba(0, 30, 90, 0.9), rgba(0, 30, 90, 0.6)),url(${Hero})`,
     },
     section: {
-        padding: '33vh 0  10vh 0',
+        padding: '30vh 0  10vh 0',
     },
     btn: {
         padding: '0.5rem 1.2rem',
-        margin: '6vh 2rem',
+        margin: '2vh 2rem',
         fontWeight: '600',
         fontSize: '15px',
     },

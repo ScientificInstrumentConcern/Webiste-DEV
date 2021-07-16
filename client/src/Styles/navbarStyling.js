@@ -17,7 +17,6 @@ export const useStyles = makeStyles((theme) => ({
         margin: '2rem 0.5rem',
         color: theme.palette.primary.main,
         fontWeight: 600,
-        fontSize: '27px',
     },
     navItems: {
         color: theme.palette.primary.main,
@@ -27,7 +26,7 @@ export const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(5),
     },
     mobilenavItems: {
-        color: theme.palette.primary.main,
+        color: theme.palette.secondary.main,
         flexGrow: 0.1,
         fontWeight: 600,
         fontSize: '1rem',
