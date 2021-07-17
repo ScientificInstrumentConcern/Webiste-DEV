@@ -40,8 +40,9 @@ function ViewProduct() {
     let subtitle;
     //managing state
     const product = useSelector((state) => state.singleProduct);
+   
     //setting states
-    const [code, setCode] = useState(product.loading ? '' : product.data.code);
+    const [code, setCode] = useState(product.loading ? 'product.data.code' : product.data.code);
     const [name, setName] = useState(product.loading ? '' : product.data.name);
     const [desc, setDesc] = useState(product.loading ? '' : product.data.desc);
     const [instrumentImage, setInstrumentImage] = useState(
@@ -124,7 +125,7 @@ function ViewProduct() {
 
                         <br />
                         <br />
-                        <Paper elevation={3} style={{ padding: '0.5rem' }}>
+                        <Paper elevation={0} style={{ padding: '0rem' }}>
                             <img
                                 src={product.data.descImg}
                                 alt="Instrument Description"
@@ -138,13 +139,14 @@ function ViewProduct() {
                     <Button
                         disableFocusRipple
                         disableTouchRipple
+                        disabled
                         variant="outlined"
                         style={{ marginTop: '3rem' }}
                     >
                         <img
                             src={product.data.itemImg}
                             alt="Instrument Cover"
-                            style={{ height: '100%', width: '100%' }}
+                            style={{ height: '105%', width: '100%' }}
                         />
                     </Button>
                 </Grid>
