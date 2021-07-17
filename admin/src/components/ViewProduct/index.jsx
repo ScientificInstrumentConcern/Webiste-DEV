@@ -40,9 +40,11 @@ function ViewProduct() {
     let subtitle;
     //managing state
     const product = useSelector((state) => state.singleProduct);
-   
+
     //setting states
-    const [code, setCode] = useState(product.loading ? 'product.data.code' : product.data.code);
+    const [code, setCode] = useState(
+        product.loading ? 'product.data.code' : product.data.code
+    );
     const [name, setName] = useState(product.loading ? '' : product.data.name);
     const [desc, setDesc] = useState(product.loading ? '' : product.data.desc);
     const [instrumentImage, setInstrumentImage] = useState(

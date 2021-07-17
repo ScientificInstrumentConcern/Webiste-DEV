@@ -26,8 +26,8 @@ const useStyles = makeStyles({
 });
 
 const load = () => {
-<Skelton/>
-}
+    <Skelton />;
+};
 
 function ProductCard(props) {
     const classes = useStyles();
