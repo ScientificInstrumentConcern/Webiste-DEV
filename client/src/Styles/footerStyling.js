@@ -46,6 +46,6 @@ export const useStyles = makeStyles((theme) => ({
     },
     logo: {
         height: '5rem',
-        width: '6rem',
+        width: '5rem',
     },
 }));

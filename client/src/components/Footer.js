@@ -17,7 +17,8 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 //Styling
 import { useStyles } from '../Styles/footerStyling';
 import { Container } from '@material-ui/core';
-
+//assets
+import Logo from '../assets/Logo.png'
 function Footer() {
     const classes = useStyles();
 
@@ -32,8 +33,8 @@ function Footer() {
                         {/*Grid for store icons*/}
                         {/*Column-1 logo column */}
                         <Grid item spacing={10} md={6} lg={3} xs={8}>
-                            {/*<img src={Logo} className={classes.logo}/>*/}
-                            <Typography variant="subtitle2">SINCON</Typography>
+                            <img src={Logo} className={classes.logo} alt='SINCON'/>
+                            <Typography variant="h6">SINCON</Typography>
                         </Grid>
                         {/*Column-2 Company column */}
                         <Grid item spacing={3} md={6} lg={3} xs={8}>
@@ -50,14 +51,44 @@ function Footer() {
                             >
                                 Contact Us
                             </Typography>
+                            <Typography
+                                className={clsx(classes.list, classes.top)}
+                            >
+                                Our Products
+                            </Typography>
+                            <Typography
+                                className={clsx(classes.list, classes.top)}
+                            >
+                                Send Enquiry
+                            </Typography>
                         </Grid>
                         {/*Column-2 Company column */}
                         <Grid item spacing={3} md={6} lg={3} xs={8}>
                             <Typography variant="h6">Contact Info</Typography>
+                            <Typography
+                                className={clsx(classes.list, classes.top)}
+                            >
+                                Address
+                            </Typography>
+                            <Typography
+                                className={clsx(classes.list, classes.top)}
+                            >
+                               Email: 
+                            </Typography>
+                            <Typography
+                                className={clsx(classes.list, classes.top)}
+                            >
+                                Phone number
+                            </Typography>
                         </Grid>
                         {/*Column-3 Social column */}
                         <Grid item md={6} lg={3} xs={8} spacing={3}>
-                            <Typography variant="h5"> Contact Us: </Typography>
+                            <Typography variant="h6"> Social Links </Typography>
+                            <Typography
+                                className={clsx(classes.list, classes.top)}
+                            >
+                                Follow us on:
+                            </Typography>
                             <a
                                 target="_blank"
                                 href="tel:+91-900-792-2972"
@@ -115,7 +146,7 @@ function Footer() {
                     <Grid item xs={7}>
                         <Typography color="primary">
                             Copyright @2021 SINCON.
-                            <br/> All Rights Reserved.
+                             All Rights Reserved.
                         </Typography>
                     </Grid>
                     <Grid item xs={5}>
