@@ -22,8 +22,8 @@ import ViewProduct from './components/ViewProduct';
 import { useSelector } from 'react-redux';
 
 //preloader
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Loader from 'react-loader-spinner';
 
 function App() {
     //constants
