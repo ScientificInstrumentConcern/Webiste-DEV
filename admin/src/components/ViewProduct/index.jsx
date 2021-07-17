@@ -106,18 +106,18 @@ function ViewProduct() {
         <Container style={{ minHeight: '70vh' }}>
             <br />
             <Grid container>
-                <Grid item xs="3">
+                <Grid item xs="4">
                     <Typography variant="h4">{product.data.code}</Typography>{' '}
                 </Grid>
                 <Grid item xs="1"></Grid>
                 <Grid item xs="7">
-                    <Typography variant="h4">{product.data.name}</Typography>
+                    <Typography variant="h3">{product.data.name}</Typography>
                 </Grid>
             </Grid>
             <br />
             <Grid container>
                 <Grid item md="6">
-                    <Typography variant="h5">Technical Description</Typography>
+                    <Typography variant="h4">Technical Description</Typography>
                     <Container>
                         <Typography variant="body1">
                             {product.data.desc}
