@@ -13,17 +13,17 @@ function Hero() {
         <div>
             <div className={classes.hero}>
                 <div className={classes.section}>
-                    <Typography align="center" variant="h2" color="primary">
+                    <Typography align="center" variant="h1" color="primary">
                         Scientific Instrument Concern
                     </Typography>
                     <Typography
                         align="center"
-                        variant="subtitle2"
+                        variant="h4"
                         color="primary"
                     >
                         Always a step ahead in technology
                     </Typography>
-                    <Typography align="center" variant="h6">
+                    <Typography align="center" variant="h6" style={{margin: '2rem 0 5vh 0 '}}>
                         <Link to="/products" style={{ textDecoration: 'none' }}>
                             <Button
                                 variant="contained"

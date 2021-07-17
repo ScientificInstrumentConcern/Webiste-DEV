@@ -31,7 +31,7 @@ export default function Navbar() {
             <AppBar position="absolute" className={classes.height}>
                 <Toolbar variant="dense">
                     {/*Nav Header*/}
-                    <Typography variant="h6" className={classes.title}>
+                    <Typography variant="h5" className={classes.title}>
                         <Link
                             to="/"
                             style={{ textDecoration: 'none' }}

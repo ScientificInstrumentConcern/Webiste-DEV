@@ -5,6 +5,7 @@ import Products from './components/Products';
 import About from './components/About';
 import Clients from './components/Clients';
 import { useStyles } from '../../Styles/Home/heroStyling';
+import SendEdquiry from './components/SendEdquiry';
 
 function Home() {
     const classes = useStyles();
@@ -17,6 +18,10 @@ function Home() {
                 <Products />
             </Container>
             <Clients />
+            <Container >
+            <SendEdquiry />
+            </Container>
+            
         </div>
     );
 }

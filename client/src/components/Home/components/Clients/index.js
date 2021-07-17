@@ -3,6 +3,9 @@ import { Typography } from '@material-ui/core';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+//media querries
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 //assets
 import one from '../../../../assets/slides/1.png';
 import two from '../../../../assets/slides/2.png';
@@ -19,6 +22,8 @@ import twelve from '../../../../assets/slides/12.png';
 import thirteen from '../../../../assets/slides/13.png';
 import fourteen from '../../../../assets/slides/14.png';
 function Clients() {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.up('md'));
     return (
         <div style={{ margin: '5rem 0' }}>
             <Typography
@@ -29,68 +34,133 @@ function Clients() {
             >
                 Our Clients
             </Typography>
-            <OwlCarousel
-                className="owl-height"
-                autoplay
-                loop
-                margin={30}
-                nav
-                center
-                responsiveClass
-                items={6}
-                lazyLoad
-            >
-                <div class="item">
-                    <img src={one} alt="Private" />
-                </div>
-                <div class="item">
-                    <img src={nine} alt="Gov1" />
-                </div>
-                <div class="item">
-                    <img
-                        src={three}
-                        alt="Private"
-                        style={{ marginTop: '2rem' }}
-                    />
-                </div>
-                <div class="item">
-                    <img src={four} alt="Gov1" />
-                </div>
-                <div class="item">
-                    <img src={five} alt="Gov1" />
-                </div>
-                <div class="item">
-                    <img src={six} alt="Gov1" />
-                </div>
-                <div class="item">
-                    <img
-                        src={two}
-                        alt="Private"
-                        style={{ marginTop: '2rem' }}
-                    />
-                </div>
-                <div class="item">
-                    <img src={seven} alt="Gov1" />
-                </div>
-                <div class="item">
-                    <img src={eight} alt="Gov1" />
-                </div>
-                <div class="item">
-                    <img src={ten} alt="Gov1" />
-                </div>
-                <div class="item">
-                    <img src={eleven} alt="Gov1" />
-                </div>
-                <div class="item">
-                    <img src={twelve} alt="Gov1" />
-                </div>
-                <div class="item">
-                    <img src={thirteen} alt="Gov1" />
-                </div>
-                <div class="item">
-                    <img src={fourteen} alt="Gov1" />
-                </div>
-            </OwlCarousel>
+            {isMobile ? (
+                <> {/*For normal screen*/}
+                <OwlCarousel
+                        className="owl-height"
+                        autoplay
+                        loop
+                        margin={96}
+                        center
+                        items={8}
+                        lazyLoad
+                    >
+                        <div class="item">
+                            <img src={one} alt="Private" />
+                        </div>
+                        <div class="item">
+                            <img src={nine} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img
+                                src={three}
+                                alt="Private"
+                                style={{ marginTop: '2rem' }}
+                            />
+                        </div>
+                        <div class="item">
+                            <img src={four} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={five} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={six} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img
+                                src={two}
+                                alt="Private"
+                                style={{ marginTop: '2rem' }}
+                            />
+                        </div>
+                        <div class="item">
+                            <img src={seven} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={eight} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={ten} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={eleven} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={twelve} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={thirteen} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={fourteen} alt="Gov1" />
+                        </div>
+                    </OwlCarousel>{' '}
+                </>
+            ) : (
+                <>
+                    <OwlCarousel
+                        className="owl-height"
+                        autoplay
+                        loop
+                        margin={36}
+                        center
+                        items={3}
+                        lazyLoad
+                    >
+                        <div class="item">
+                            <img src={one} alt="Private" />
+                        </div>
+                        <div class="item">
+                            <img src={nine} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img
+                                src={three}
+                                alt="Private"
+                                style={{ marginTop: '2rem' }}
+                            />
+                        </div>
+                        <div class="item">
+                            <img src={four} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={five} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={six} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img
+                                src={two}
+                                alt="Private"
+                                style={{ marginTop: '2rem' }}
+                            />
+                        </div>
+                        <div class="item">
+                            <img src={seven} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={eight} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={ten} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={eleven} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={twelve} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={thirteen} alt="Gov1" />
+                        </div>
+                        <div class="item">
+                            <img src={fourteen} alt="Gov1" />
+                        </div>
+                    </OwlCarousel>{' '}
+                </>
+            )}
         </div>
     );
 }

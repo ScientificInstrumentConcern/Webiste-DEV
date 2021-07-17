@@ -15,6 +15,8 @@ const theme = createMuiTheme({
         color: '#000',
         h1: {
             fontFamily: 'Prata',
+            margin: '1rem',
+            fontWeight: '600',
         },
         h2: {
             fontFamily: 'Lato',
@@ -33,14 +35,12 @@ const theme = createMuiTheme({
         },
         h6: {
             fontFamily: 'Prata',
-            textDecoration: 'underline',
         },
         subtitle1: {
             fontFamily: 'Lato',
         },
         subtitle2: {
             fontFamily: 'Lato',
-            fontSize: '27px',
         },
     },
     props: {
