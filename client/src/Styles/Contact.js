@@ -3,14 +3,19 @@ import Hero from '../assets/Contact.png';
 export const useStyles = makeStyles((theme) => ({
    
     root: {
-        width: '100%',
         minHeight: '100vh',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        background: `linear-gradient(rgba(0, 30, 90, 0.9), rgba(0, 30, 90, 0.6)),url(${Hero})`,
+        background: `linear-gradient(rgba(0, 30, 90, 0.9), rgba(0, 30, 90, 0.8)),url(${Hero})`,
         color: theme.palette.primary.main
     },
     section: {
-        padding: '20vh 0  10vh 0',
+        paddingTop: '16vh',
     },
+    margin:{
+        margin: theme.spacing(2, 0)
+    },
+    paper:{
+        
+    }
 }));
