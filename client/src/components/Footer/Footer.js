@@ -1,39 +1,36 @@
 //For adding multiple class in a component
 import clsx from 'clsx';
-
 //MUI components
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-
-import { useState } from 'react';
+import {Typography, Grid} from '@material-ui/core';
 import { Link } from 'react-router-dom';
-
 //Icons
 import PhoneIcon from '@material-ui/icons/Phone';
 import MailIcon from '@material-ui/icons/Mail';
 import LinkedIn from '@material-ui/icons/LinkedIn';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
-
+import RoomIcon from '@material-ui/icons/Room';
+import FacebookIcon from '@material-ui/icons/Facebook';
 //Styling
-import { useStyles } from '../Styles/footerStyling';
-import { Container } from '@material-ui/core';
+import { useStyles } from '../../Styles/footerStyling';
 //assets
-import Logo from '../assets/Logo.png'
+import Logo from '../../assets/Logo.png';
+//component
+import Subfooter from './Subfooter';
 function Footer() {
     const classes = useStyles();
-
-    const [Label, setLabel] = useState('');
-
     return (
         <div style={{ background: '#00132f' }}>
             <div className={classes.footer}>
                 <Grid container spacing={1}>
                     <Grid container className={classes.top}>
-                        {' '}
                         {/*Grid for store icons*/}
                         {/*Column-1 logo column */}
                         <Grid item spacing={10} md={6} lg={3} xs={8}>
-                            <img src={Logo} className={classes.logo} alt='SINCON'/>
+                            <img
+                                src={Logo}
+                                className={classes.logo}
+                                alt="SINCON"
+                            />
                             <Typography variant="h6">SINCON</Typography>
                         </Grid>
                         {/*Column-2 Company column */}
@@ -41,53 +38,83 @@ function Footer() {
                             <Typography variant="h6">
                                 Important Links
                             </Typography>
+                            <Link
+                                to="/About"
+                                style={{ textDecoration: 'none' }}
+                            >
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
                                 About
                             </Typography>
+                            </Link>
+                            <Link
+                                to="/Contact"
+                                style={{ textDecoration: 'none' }}
+                            >
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
                                 Contact Us
                             </Typography>
+                            </Link>
+                            <Link
+                                to="/Product"
+                                style={{ textDecoration: 'none' }}
+                            >
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
                                 Our Products
                             </Typography>
+                            </Link>
+                            <Link
+                                to="/Enquiry"
+                                style={{ textDecoration: 'none' }}
+                            >
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
                                 Send Enquiry
                             </Typography>
+                            </Link>
                         </Grid>
                         {/*Column-2 Company column */}
                         <Grid item spacing={3} md={6} lg={3} xs={8}>
                             <Typography variant="h6">Contact Info</Typography>
+
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
                                 Address
                             </Typography>
-                            <Typography
-                                className={clsx(classes.list, classes.top)}
-                            >
-                               Email: 
+                            <Typography color='primary' style={{display:'flex'}} variant='body2'>
+                            <RoomIcon  style={{marginRight: '0.4rem'}}/>
+                            HA/148/1st Floor, Salt Lake City, Sector- III, <br/>Kolkata - 700097. West Bengal, India
                             </Typography>
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
-                                Phone number
+                                Email:
                             </Typography>
-                        </Grid>
-                        {/*Column-3 Social column */}
-                        <Grid item md={6} lg={3} xs={8} spacing={3}>
-                            <Typography variant="h6"> Social Links </Typography>
+                            <a
+                                class="mailto"
+                                href="mailto:sinconsales@gmail.com"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: '#fff',
+                                    display:'flex'
+                                }}
+                            >
+                                <MailIcon
+                                    fontSize='small' style={{marginRight: '0.5rem'}}
+                                />
+                                sinconsales@gmail.com
+                            </a>
                             <Typography
                                 className={clsx(classes.list, classes.top)}
                             >
-                                Follow us on:
+                                Phone number:
                             </Typography>
                             <a
                                 target="_blank"
@@ -95,12 +122,24 @@ function Footer() {
                                 style={{
                                     textDecoration: 'none',
                                     color: '#fff',
+                                    display:'flex'
                                 }}
                             >
                                 <PhoneIcon
-                                    className={clsx(classes.right, classes.top)}
+                                fontSize='small'
+                                    style={{marginRight: '0.5rem'}}
                                 />
+                                +900-7922-972
                             </a>
+                        </Grid>
+                        {/* Column-3 Social column */}
+                        <Grid item md={6} lg={3} xs={8} spacing={3}>
+                            <Typography variant="h6"> Social Links </Typography>
+                            <Typography
+                                className={clsx(classes.list, classes.top)}
+                            >
+                                Follow us on:
+                            </Typography>
                             <a
                                 class="mailto"
                                 href="mailto:nripotee@gmail.com"
@@ -137,38 +176,23 @@ function Footer() {
                                     className={clsx(classes.right, classes.top)}
                                 />
                             </a>
+                            <a
+                                target="_blank"
+                                href="https://www.linkedin.com/company/78576321"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: '#fff',
+                                }}
+                            >
+                                <FacebookIcon
+                                    className={clsx(classes.right, classes.top)}
+                                />
+                            </a>
                         </Grid>
                     </Grid>
                 </Grid>
             </div>
-            <Container maxWidth="xl" style={{ padding: '1rem ' }}>
-                <Grid container>
-                    <Grid item xs={7}>
-                        <Typography color="primary">
-                            Copyright @2021 SINCON.
-                             All Rights Reserved.
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={5}>
-                        <Typography align="right">
-                            <Grid container>
-                                <Grid item md={8}>
-                                    <Typography color="primary">
-                                        Terms and condition
-                                    </Typography>
-                                </Grid>
-                                <Grid item md={4}>
-                                    <Typography color="primary">
-                                        Privacy Policy
-                                    </Typography>
-                                </Grid>
-                            </Grid>
-                        </Typography>
-                    </Grid>
-                </Grid>
-            </Container>
+            <Subfooter />
         </div>
-    );
-}
-
+)}
 export default Footer;

@@ -44,7 +44,7 @@ export default function Navbar() {
                     {isMobile ? (
                         <>
                             {/*Nav items*/}
-                            <Link to="#" style={{ textDecoration: 'none' }}>
+                            <Link to="Products" style={{ textDecoration: 'none' }}>
                                 <Typography
                                     variant="body2"
                                     className={classes.navItems}
@@ -64,7 +64,7 @@ export default function Navbar() {
                                 </Typography>
                             </Link>
                             <Link
-                                to="/Contact"
+                                to="/Enquiry"
                                 style={{ textDecoration: 'none' }}
                             >
                                 <Typography
@@ -95,26 +95,41 @@ export default function Navbar() {
                                 onClose={() => setToggle(false)}
                             >
                                 <List className={classes.list}>
+                                <Link
+                                to="/Products"
+                                style={{ textDecoration: 'none' }}
+                            >
                                     <ListItem button>
                                         <ListItemText
-                                            primary={'Our Services'}
+                                            primary={'Our Product'}
                                             className={classes.mobilenavItems}
                                         />
                                     </ListItem>
+                                    </Link>
                                     <Divider />
+                                    <Link
+                                to="/Contact"
+                                style={{ textDecoration: 'none' }}
+                            >
                                     <ListItem button>
                                         <ListItemText
                                             primary={'Contact Us'}
                                             className={classes.mobilenavItems}
                                         />
                                     </ListItem>
+                                    </Link>
                                     <Divider />
+                                    <Link
+                                to="/Enquiry"
+                                style={{ textDecoration: 'none' }}
+                            >
                                     <ListItem button>
                                         <ListItemText
                                             primary={'Send Enquiry'}
                                             className={classes.mobilenavItems}
                                         />
                                     </ListItem>
+                                    </Link>
                                     <Divider />
                                 </List>
                             </Drawer>
