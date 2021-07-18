@@ -1,7 +1,7 @@
 import { Typography, Button, IconButton } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useStyles } from '../../../Styles/Home/heroStyling';
+import { useStyles } from '../../../Styles/Home/hero';
 import { animateScroll as scroll } from 'react-scroll';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 function Hero() {

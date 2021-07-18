@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Contact() {
+function Catalouge() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function Contact() {
     )
 }
 
-export default Contact
+export default Catalouge
