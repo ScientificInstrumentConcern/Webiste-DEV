@@ -2,7 +2,7 @@ import { Button, Grid, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import React from 'react';
 import HeroImage from '../../../assets/support.svg';
-import { useStyles } from '../../../Styles/Home/AboutStyling';
+import { useStyles } from '../../../Styles/Home/About';
 
 const SendEdquiry = () => {
     const classes = useStyles();

@@ -11,7 +11,7 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import RoomIcon from '@material-ui/icons/Room';
 import FacebookIcon from '@material-ui/icons/Facebook';
 //Styling
-import { useStyles } from '../../Styles/footerStyling';
+import { useStyles } from '../../Styles/footer';
 //assets
 import Logo from '../../assets/Logo.png';
 //component

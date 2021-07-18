@@ -2,7 +2,7 @@ import { Grid, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import React from 'react';
 import HeroImage from '../../../assets/about.svg';
-import { useStyles } from '../../../Styles/Home/AboutStyling';
+import { useStyles } from '../../../Styles/Home/About';
 
 const About = () => {
     const classes = useStyles();
