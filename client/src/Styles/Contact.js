@@ -10,12 +10,14 @@ export const useStyles = makeStyles((theme) => ({
         color: theme.palette.primary.main
     },
     section: {
-        paddingTop: '16vh',
+        paddingTop: '12vh',
     },
     margin:{
         margin: theme.spacing(2, 0)
     },
     paper:{
-        
+        color: theme.palette.secondary.main,
+        padding: theme.spacing(2),
+        margin: theme.spacing(3, 0, 5 , 0)
     }
 }));

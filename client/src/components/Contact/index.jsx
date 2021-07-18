@@ -4,6 +4,7 @@ import {
     Typography,
     Paper,
     TextField,
+    Button,
 } from '@material-ui/core';
 import { Room, Mail, Phone } from '@material-ui/icons';
 //Styling
@@ -36,12 +37,10 @@ function Contact() {
                             Kolkata - 700097. West Bengal, India
                         </Typography>
                         <div className={classes.margin}>
-                        <Typography variant='h6'>
-                            Contact Person
-                        </Typography>
-                        <Typography variant='body1'>
-                        Nripotee Ranjan Das
-                        </Typography>
+                            <Typography variant="h6">Contact Person</Typography>
+                            <Typography variant="body1">
+                                Nripotee Ranjan Das
+                            </Typography>
                         </div>
                         <div className={classes.margin}>
                             <Typography variant="h6">Email:</Typography>
@@ -102,15 +101,81 @@ function Contact() {
                         {''}
                     </Grid>
                     {/*For form*/}
-                    <Grid item md={5}>
-                        <Paper>
+                    <Grid item md={5} xs={12}>
+                        <Paper className={classes.paper}>
+                            <Typography
+                                color="secondary"
+                                align="center"
+                                variant="h6"
+                                className={classes.margin}
+                            >
+                                Drop Us A Message For Any Query
+                            </Typography>
                             <TextField
-                                variant="outlined"
+                                variant="filled"
                                 margin="normal"
                                 required
-                                label="lol"
+                                label="Name"
                                 autofocus
+                                color="secondary"
+                                fullWidth
                             />
+
+                            <TextField
+                                variant="filled"
+                                margin="normal"
+                                required
+                                label="email"
+                                autofocus
+                                color="secondary"
+                                fullWidth
+                            />
+
+                            <TextField
+                                variant="filled"
+                                margin="normal"
+                                required
+                                label="Company Name"
+                                autofocus
+                                color="secondary"
+                                fullWidth
+                            />
+
+                            <TextField
+                                variant="filled"
+                                margin="normal"
+                                required
+                                label="Country"
+                                autofocus
+                                color="secondary"
+                                fullWidth
+                            />
+
+                            <TextField
+                                variant="filled"
+                                margin="normal"
+                                required
+                                label="City"
+                                autofocus
+                                color="secondary"
+                                fullWidth
+                            />
+
+                            <TextField
+                                variant="filled"
+                                margin="normal"
+                                required
+                                label="Your message"
+                                autofocus
+                                color="secondary"
+                                fullWidth
+                            />
+
+                            <br/>
+                            <br/>
+                            <Button variant='outlined'>
+                                Submit
+                            </Button>
                         </Paper>
                     </Grid>
                 </Grid>

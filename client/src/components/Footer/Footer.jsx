@@ -80,7 +80,7 @@ function Footer() {
                             </Link>
                         </Grid>
                         {/*Column-2 Company column */}
-                        <Grid item spacing={3} md={6} lg={3} xs={8}>
+                        <Grid item spacing={3} md={6} lg={3} xs={11}>
                             <Typography variant="h6">Contact Info</Typography>
 
                             <Typography
@@ -133,10 +133,10 @@ function Footer() {
                             </a>
                         </Grid>
                         {/* Column-3 Social column */}
-                        <Grid item md={6} lg={3} xs={8} spacing={3}>
+                        <Grid item md={6} lg={3} xs={10}>
                             <Typography variant="h6"> Social Links </Typography>
                             <Typography
-                                className={clsx(classes.list, classes.top)}
+                                className={clsx(classes.list)}
                             >
                                 Follow us on:
                             </Typography>
