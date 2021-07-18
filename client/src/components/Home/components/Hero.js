@@ -34,7 +34,7 @@ function Hero() {
                             </Button>
                         </Link>
 
-                        <Link to="/products" style={{ textDecoration: 'none' }}>
+                        <Link to="/Contact" style={{ textDecoration: 'none' }}>
                             <Button
                                 variant="outlined"
                                 color="primary"
