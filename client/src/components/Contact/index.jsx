@@ -9,7 +9,7 @@ import {
 import { Room, Mail, Phone } from '@material-ui/icons';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { contactenquiry } from '../../redux/action-types';
+import { contactenquiry } from '../../redux/action-creators';
 //Styling
 import { useStyles } from '../../Styles/Contact';
 function Contact() {
@@ -28,6 +28,12 @@ function Contact() {
     const submit = () => {
         dispatch(contactenquiry(name, email, company, country, city, msg));
         setLog(true);
+        setName("");
+        setCity("");
+        setCompany("");
+        setCountry("");
+        setMsg("");
+        setEmail("")
     };
 
     return (
@@ -213,7 +219,7 @@ function Contact() {
 
                             <br />
                             <br />
-                            <Button variant="outlined" onClick={submit}>
+                            <Button type='submit' variant="outlined" onClick={submit}>
                                 Submit
                             </Button>
                         </Paper>
