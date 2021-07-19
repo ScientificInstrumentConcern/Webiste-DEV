@@ -2,7 +2,7 @@ import {Typography, Container, Grid} from '@material-ui/core'
 
 function Subfooter() {
     return (
-        <div>
+        <>
             <Container maxWidth="xl" style={{ padding: '1rem ' }}>
                 <Grid container>
                     <Grid item xs={7}>
@@ -28,7 +28,7 @@ function Subfooter() {
                     </Grid>
                 </Grid>
             </Container>
-        </div>
+        </>
     )
 }
 

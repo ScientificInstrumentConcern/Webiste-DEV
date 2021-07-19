@@ -68,16 +68,6 @@ function Footer() {
                                 Our Products
                             </Typography>
                             </Link>
-                            <Link
-                                to="/Enquiry"
-                                style={{ textDecoration: 'none' }}
-                            >
-                            <Typography
-                                className={clsx(classes.list, classes.top)}
-                            >
-                                Send Enquiry
-                            </Typography>
-                            </Link>
                         </Grid>
                         {/*Column-2 Company column */}
                         <Grid item spacing={3} md={6} lg={3} xs={11}>

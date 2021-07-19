@@ -10,11 +10,10 @@ import ScrollToTop from './scrolltotop';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Catalouge from './components/catalouge';
 import Contact from './components/Contact';
+import About from './components/About';
 
 import theme from './theme';
-
 
 function App() {
     return (
@@ -25,8 +24,8 @@ function App() {
                     <Navbar />
                     <Switch>
                         <Route exact path="/" component={Home} />
-                        <Route exact path="/Products" component={Catalouge} />
                         <Route exact path='/Contact' component={Contact}/>
+                        <Route exact path='/About' component={About}/>
                     </Switch>
                     <Footer />
                 </ScrollToTop>
