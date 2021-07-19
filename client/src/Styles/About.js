@@ -11,5 +11,15 @@ export const useStyles = makeStyles((theme) => ({
     section: {
         paddingTop: '20vh',
     },
+    margin:{
+        margin:theme.spacing(2)
+    },
+    padding:{
+        padding:theme.spacing(2,0)
+    },
+    find:{
+        background: '#1e3870',
+        color:theme.palette.primary.main
+    }
 
 }));
