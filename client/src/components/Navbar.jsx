@@ -63,17 +63,6 @@ export default function Navbar() {
                                     Contact Us
                                 </Typography>
                             </Link>
-                            <Link
-                                to="/Enquiry"
-                                style={{ textDecoration: 'none' }}
-                            >
-                                <Typography
-                                    variant="body2"
-                                    className={classes.navItems}
-                                >
-                                    Send Enquiry
-                                </Typography>
-                            </Link>
                         </>
                     ) : (
                         <>
@@ -119,18 +108,7 @@ export default function Navbar() {
                                     </ListItem>
                                     </Link>
                                     <Divider />
-                                    <Link
-                                to="/Enquiry"
-                                style={{ textDecoration: 'none' }}
-                            >
-                                    <ListItem button>
-                                        <ListItemText
-                                            primary={'Send Enquiry'}
-                                            className={classes.mobilenavItems}
-                                        />
-                                    </ListItem>
-                                    </Link>
-                                    <Divider />
+                                   
                                 </List>
                             </Drawer>
                         </>

@@ -10,7 +10,7 @@ function Hero() {
         scroll.scrollMore(700);
     }
     return (
-        <div>
+        <>
             <div className={classes.hero}>
                 <div className={classes.section}>
                     <Typography align="center" variant="h1" color="primary">
@@ -53,7 +53,7 @@ function Hero() {
                     </Link>
                 </Typography>
             </div>
-        </div>
+        </>
     );
 }
 
