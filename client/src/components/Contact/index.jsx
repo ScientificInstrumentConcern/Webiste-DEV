@@ -7,10 +7,29 @@ import {
     Button,
 } from '@material-ui/core';
 import { Room, Mail, Phone } from '@material-ui/icons';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { contactenquiry } from '../../redux/action-types';
 //Styling
 import { useStyles } from '../../Styles/Contact';
 function Contact() {
     const classes = useStyles();
+    const dispatch = useDispatch();
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [company, setCompany] = useState();
+    const [country, setCountry] = useState();
+    const [city, setCity] = useState();
+    const [msg, setMsg] = useState();
+
+    const [log, setLog] = useState(false);
+
+    //OnSubmit function dispatch all data to api and render to homepage
+    const submit = () => {
+        dispatch(contactenquiry(name, email, company, country, city, msg));
+        setLog(true);
+    };
+
     return (
         <div className={classes.root}>
             <Container className={classes.section}>
@@ -111,6 +130,15 @@ function Contact() {
                             >
                                 Drop Us A Message For Any Query
                             </Typography>
+                            {log ? (
+                                <Typography align="center">
+                                    Thank you for submitting form one of our
+                                    representive will contact you soon
+                                </Typography>
+                            ) : (
+                                <></>
+                            )}
+
                             <TextField
                                 variant="filled"
                                 margin="normal"
@@ -119,6 +147,8 @@ function Contact() {
                                 autofocus
                                 color="secondary"
                                 fullWidth
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
                             />
 
                             <TextField
@@ -129,6 +159,8 @@ function Contact() {
                                 autofocus
                                 color="secondary"
                                 fullWidth
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
 
                             <TextField
@@ -139,6 +171,8 @@ function Contact() {
                                 autofocus
                                 color="secondary"
                                 fullWidth
+                                value={company}
+                                onChange={(e) => setCompany(e.target.value)}
                             />
 
                             <TextField
@@ -149,6 +183,8 @@ function Contact() {
                                 autofocus
                                 color="secondary"
                                 fullWidth
+                                value={country}
+                                onChange={(e) => setCountry(e.target.value)}
                             />
 
                             <TextField
@@ -159,6 +195,8 @@ function Contact() {
                                 autofocus
                                 color="secondary"
                                 fullWidth
+                                value={city}
+                                onChange={(e) => setCity(e.target.value)}
                             />
 
                             <TextField
@@ -169,11 +207,13 @@ function Contact() {
                                 autofocus
                                 color="secondary"
                                 fullWidth
+                                value={msg}
+                                onChange={(e) => setMsg(e.target.value)}
                             />
 
-                            <br/>
-                            <br/>
-                            <Button variant='outlined'>
+                            <br />
+                            <br />
+                            <Button variant="outlined" onClick={submit}>
                                 Submit
                             </Button>
                         </Paper>
