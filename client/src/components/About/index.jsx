@@ -39,7 +39,7 @@ function About() {
             </Container>
             <div className={classes.find}>
                 <Container>
-                    <Typography variant="h5" className={classes.padding}>
+                    <Typography variant="h5" className={classes.padding} style={{fontWeight:'600', textDecoration: 'underline'}}>
                         Find Us At:
                     </Typography>
                     <Grid container>
