@@ -1,7 +1,7 @@
 import { Typography, Button, IconButton } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useStyles } from '../../../Styles/Home/heroStyling';
+import { useStyles } from '../../../Styles/Home/hero';
 import { animateScroll as scroll } from 'react-scroll';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 function Hero() {
@@ -10,7 +10,7 @@ function Hero() {
         scroll.scrollMore(700);
     }
     return (
-        <div>
+        <>
             <div className={classes.hero}>
                 <div className={classes.section}>
                     <Typography align="center" variant="h1" color="primary">
@@ -34,7 +34,7 @@ function Hero() {
                             </Button>
                         </Link>
 
-                        <Link to="/products" style={{ textDecoration: 'none' }}>
+                        <Link to="/Contact" style={{ textDecoration: 'none' }}>
                             <Button
                                 variant="outlined"
                                 color="primary"
@@ -53,7 +53,7 @@ function Hero() {
                     </Link>
                 </Typography>
             </div>
-        </div>
+        </>
     );
 }
 

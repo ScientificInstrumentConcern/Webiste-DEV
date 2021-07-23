@@ -1,54 +1,65 @@
-import React from "react";
+import React from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-} from "react-router-dom";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { MuiThemeProvider } from "@material-ui/core";
-import ScrollToTop from "./scrolltotop";
-import theme from "./theme";
+    BrowserRouter as Router,
+    Route,
+    Redirect,
+    Switch,
+} from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { MuiThemeProvider } from '@material-ui/core';
+import ScrollToTop from './scrolltotop';
+import theme from './theme';
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Home from "./components/Home";
-import Newproduct from "./components/NewProduct";
-import ViewProduct from "./components/ViewProduct";
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Login from './components/Login';
+import Register from './components/Register';
+import Home from './components/Home';
+import Newproduct from './components/NewProduct';
+import ViewProduct from './components/ViewProduct';
 
 //Redux stuff
-import {useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
+//preloader
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Loader from 'react-loader-spinner';
 
 function App() {
-  //constants
+    //constants
 
-//reduxStuffs
-  const { data } = useSelector((state) => state.userLogin);
+    //reduxStuffs
+    const { data } = useSelector((state) => state.userLogin);
 
-  return (
-    <MuiThemeProvider theme={theme}>
-      <CssBaseline />
-      <Router >
-        <ScrollToTop>
-          <Switch>
-          { !data && <Redirect exact from='/' to='/Login' />}
-            <Route exact path="/Login" component={Login} />
-            <Route exact path="/admin/register" component={Register} />
-            <>
-              <Navbar />
-              <Route exact path="/" component={Home} />
-              <Route exact path="/new" component={Newproduct} />
-              <Route exact path="/view/:id" component={ViewProduct} />
-              <Footer />
-            </>
-          </Switch>
-        </ScrollToTop>
-      </Router>
-    </MuiThemeProvider>
-  );
+    return (
+        <MuiThemeProvider theme={theme}>
+            <CssBaseline />
+            <Router>
+                <ScrollToTop>
+                    <Switch>
+                        {!data && <Redirect exact from="/" to="/Login" />}
+                        <Route exact path="/Login" component={Login} />
+                        <Route
+                            exact
+                            path="/admin/register"
+                            component={Register}
+                        />
+                        <>
+                            <Navbar />
+                            <Route exact path="/" component={Home} />
+                            <Route exact path="/new" component={Newproduct} />
+                            <Route
+                                exact
+                                path="/view/:id"
+                                component={ViewProduct}
+                            />
+                            <Footer />
+                        </>
+                    </Switch>
+                </ScrollToTop>
+            </Router>
+        </MuiThemeProvider>
+    );
 }
 
 export default App;

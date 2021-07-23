@@ -40,9 +40,9 @@ function Clients() {
                         className="owl-height"
                         autoplay
                         loop
-                        margin={96}
+                        margin={93}
                         center
-                        items={8}
+                        items={7}
                         lazyLoad
                     >
                         <div class="item">

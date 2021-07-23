@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import Products from './components/Products';
 import About from './components/About';
 import Clients from './components/Clients';
-import { useStyles } from '../../Styles/Home/heroStyling';
+import { useStyles } from '../../Styles/Home/hero';
 import SendEdquiry from './components/SendEdquiry';
 
 function Home() {
