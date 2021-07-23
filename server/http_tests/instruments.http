@@ -1,4 +1,4 @@
-GET http://localhost:5000/instruments/60e20bfdd4b09642fcd883b1
+GET http://localhost:5000/instruments/
 
 ###
 POST http://localhost:5000/instruments/add
