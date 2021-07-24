@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import About from './components/About';
+import Products from './components/Product';
 
 import theme from './theme';
 
@@ -26,6 +27,7 @@ function App() {
                         <Route exact path="/" component={Home} />
                         <Route exact path='/Contact' component={Contact}/>
                         <Route exact path='/About' component={About}/>
+                        <Route exact path='/products' component={Products}/>
                     </Switch>
                     <Footer />
                 </ScrollToTop>
