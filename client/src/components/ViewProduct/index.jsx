@@ -14,7 +14,7 @@ import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleProduct } from '../../redux/action-creators/Product';
 //Firebase file upload function
-import ProductsLoader from '../utils/Product.loader';
+import ProductsLoader from '../utils/singleproduct.loader';
 
 const customStyles = {
     content: {
