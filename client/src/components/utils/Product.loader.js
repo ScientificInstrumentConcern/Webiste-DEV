@@ -6,10 +6,8 @@ function ProductsLoader() {
     const [uuid] = useState(nanoid);
     return (
         <div>
-            <Container>
-                <Typography align="center" component="h6">
-                    <Skeleton variant="text" width={200} />
-                </Typography>
+            <Container style={{marginTop: '6rem'}}>
+     
                 <Grid container spacing={0}>
                     <Grid item key={uuid} xs={12} sm={6} md={4}>
                         <div>
