@@ -5,6 +5,7 @@ import {
     FETCH_SINGLE_PRODUCT_FAILED,
     FETCH_PRODUCT_REQUEST,
     FETCH_SINGLE_PRODUCT_REQUEST,
+    FETCH_SINGLE_PRODUCT
 } from '../action-constants';
 
 

@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     height: {
         height: '4rem',
-        background: 'rgba(0, 30, 90, 0.1)',
+        background: 'rgba(0, 30, 90, 0.5)',
     },
     menuButton: {
         marginRight: theme.spacing(3),
