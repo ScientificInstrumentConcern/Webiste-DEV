@@ -16,7 +16,7 @@ import Enquiry from "../model/enquiry.model.js";
     const newContact = {
       name: name,
       email: email,
-      conpany: company,
+      company: company,
       country: country,
       city: city,
       query: query,

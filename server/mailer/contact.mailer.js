@@ -13,7 +13,7 @@ const contactMail = (user) => {
     <br/>
     Name: ${user.name},       <br/>
     email: ${user.email},     <br/>
-    conpany: ${user.company}, <br/>
+    company: ${user.company}, <br/>
     country: ${user.country}, <br/>
     city: ${user.city},       <br/>
     query: ${user.query},     <br/>
