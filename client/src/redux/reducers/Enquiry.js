@@ -1,4 +1,4 @@
-import {POST_ENQUIRY, POST_CONTACTENQUIRY} from '../action-constants'
+import {POST_ENQUIRY, POST_ENQUIRY_FAILED} from '../action-constants'
 
 
 const initialState = {

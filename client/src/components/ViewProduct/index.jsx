@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Container, Typography, Grid, Paper, Button } from '@material-ui/core';
+import React, {useState, useEffect } from 'react';
+import { Container, Typography, Grid, Paper, Button, TextField } from '@material-ui/core';
 
 //To fetch data from params
 import { useParams } from 'react-router';
@@ -12,12 +12,13 @@ import ProductsLoader from '../utils/singleproduct.loader';
 import Modal from 'react-modal';
 const customStyles = {
     content: {
-        top: '50%',
+        top: '53%',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
+        width: '75%'
     },
 };
 
@@ -32,6 +33,19 @@ function ViewProduct() {
     useEffect(() => {
         dispatch(fetchSingleProduct(id));
     }, [dispatch, id]);
+ //Functions and states for for Modals
+ const [modalIsOpen, setIsOpen] = useState(false);
+ function openModal() {
+     setIsOpen(true);
+ }
+ function afterOpenModal() {
+     subtitle.style.color = '#000';
+ }
+ function closeModal() {
+     setIsOpen(false);
+ }
+
+
 
     return product.loading ? (
         <ProductsLoader />
@@ -117,6 +131,7 @@ function ViewProduct() {
                                 variant="contained"
                                 color="secondary"
                                 size="large"
+                                onClick={openModal}
                             >
                                 Ask for Quotation
                             </Button>
@@ -124,6 +139,108 @@ function ViewProduct() {
                     </Grid>
                 </Grid>
             </div>
+
+ {/**
+             * Modal code which will be rendered for edit
+             */}
+            <Modal
+                isOpen={modalIsOpen}
+                onAfterOpen={afterOpenModal}
+                onRequestClose={closeModal}
+                style={customStyles}
+                contentLabel="For edit purpose"
+            >
+                <h2 ref={(_subtitle) => (subtitle = _subtitle)} >
+                    Request for a Quotation
+                </h2>
+                <Container>
+                <form>
+                    <TextField
+                       variant='standard'
+                        margin="normal"
+                        required
+                        label="Name"
+                        name="code"
+                        autoFocus
+                        fullWidth={true}
+                        color='secondary'
+                    />
+                                        <TextField
+                       variant='standard'
+                        margin="normal"
+                        required
+                        label="Email"
+                        name="code"
+                        autoFocus
+                        fullWidth={true}
+                        color='secondary'
+                    />
+                                        <TextField
+                       variant='standard'
+                        margin="normal"
+                        required
+                        label="Company"
+                        name="code"
+                        autoFocus
+                        fullWidth={true}
+                        color='secondary'
+                    />
+                                        <TextField
+                       variant='standard'
+                        margin="normal"
+                        required
+                        label="Country"
+                        name="code"
+                        autoFocus
+                        fullWidth={true}
+                        color='secondary'
+                    />
+                                        <TextField
+                       variant='standard'
+                        margin="normal"
+                        required
+                        label="City"
+                        name="code"
+                        autoFocus
+                        fullWidth={true}
+                        color='secondary'
+                    />
+                                        <TextField
+                       variant='standard'
+                        margin="normal"
+                        required
+                        label="Specification"
+                        name="code"
+                        autoFocus
+                        fullWidth={true}
+                        color='secondary'
+                        multiline
+                        rows={3}
+                        rowsMax={3}
+                    />
+                <br /><br />
+                <Button
+                type='submit'
+                    variant="contained"
+                    color="primary"
+                    style={{ marginRight: '1rem' }}
+                >
+                    Submit
+                </Button>
+                <Button variant="outlined" onClick={closeModal}>
+                    close
+                </Button>
+
+                </form>
+                </Container>
+            </Modal>
+
+
+
+
+
+
+
         </Container>
     );
 }
