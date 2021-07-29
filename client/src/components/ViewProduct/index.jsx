@@ -1,11 +1,21 @@
-import React, {useState, useEffect } from 'react';
-import { Container, Typography, Grid, Paper, Button, TextField } from '@material-ui/core';
-
+import React, { useState, useEffect } from 'react';
+import {
+    Container,
+    Typography,
+    Grid,
+    Paper,
+    Button,
+    TextField,
+} from '@material-ui/core';
+//For validation
+import * as yup from 'yup';
+import { useFormik } from 'formik';
 //To fetch data from params
 import { useParams } from 'react-router';
 //redux stuffs
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleProduct } from '../../redux/action-creators/Product';
+import { EnquiryAction } from '../../redux/action-creators';
 //Firebase file upload function
 import ProductsLoader from '../utils/singleproduct.loader';
 //For modal
@@ -18,7 +28,7 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        width: '75%'
+        width: '75%',
     },
 };
 
@@ -33,19 +43,54 @@ function ViewProduct() {
     useEffect(() => {
         dispatch(fetchSingleProduct(id));
     }, [dispatch, id]);
- //Functions and states for for Modals
- const [modalIsOpen, setIsOpen] = useState(false);
- function openModal() {
-     setIsOpen(true);
- }
- function afterOpenModal() {
-     subtitle.style.color = '#000';
- }
- function closeModal() {
-     setIsOpen(false);
- }
+    //Functions and states for for Modals
+    const [modalIsOpen, setIsOpen] = useState(false);
+    function openModal() {
+        setIsOpen(true);
+    }
+    function afterOpenModal() {
+        subtitle.style.color = '#000';
+    }
+    function closeModal() {
+        setIsOpen(false);
+    }
+//for validation
+    const validationSchema = yup.object({
+        name: yup.string().required('Name is Required'),
+        email: yup.string().required('email is Required'),
+        company: yup.string().required('company is Required'),
+        country: yup.string().required('country is Required'),
+        city: yup.string().required('city is Required'),
+        specification: yup.string().required('specifications is Required'),
+    });
 
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            email: '',
+            company: '',
+            country: '',
+            city: '',
+            specification: '',
+            instrumentName: '',
+        },
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
+            dispatch(
+                EnquiryAction(
+                    values.name,
+                    values.email,
+                    values.company,
+                    values.country,
+                    values.city,
+                    values.specification,
+                    product.data.name
 
+                )
+            );
+            setIsOpen(false);
+        },
+    });
 
     return product.loading ? (
         <ProductsLoader />
@@ -140,7 +185,7 @@ function ViewProduct() {
                 </Grid>
             </div>
 
- {/**
+            {/**
              * Modal code which will be rendered for edit
              */}
             <Modal
@@ -150,97 +195,152 @@ function ViewProduct() {
                 style={customStyles}
                 contentLabel="For edit purpose"
             >
-                <h2 ref={(_subtitle) => (subtitle = _subtitle)} >
+                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
                     Request for a Quotation
                 </h2>
                 <Container>
-                <form>
-                    <TextField
-                       variant='standard'
-                        margin="normal"
-                        required
-                        label="Name"
-                        name="code"
-                        autoFocus
-                        fullWidth={true}
-                        color='secondary'
-                    />
-                                        <TextField
-                       variant='standard'
-                        margin="normal"
-                        required
-                        label="Email"
-                        name="code"
-                        autoFocus
-                        fullWidth={true}
-                        color='secondary'
-                    />
-                                        <TextField
-                       variant='standard'
-                        margin="normal"
-                        required
-                        label="Company"
-                        name="code"
-                        autoFocus
-                        fullWidth={true}
-                        color='secondary'
-                    />
-                                        <TextField
-                       variant='standard'
-                        margin="normal"
-                        required
-                        label="Country"
-                        name="code"
-                        autoFocus
-                        fullWidth={true}
-                        color='secondary'
-                    />
-                                        <TextField
-                       variant='standard'
-                        margin="normal"
-                        required
-                        label="City"
-                        name="code"
-                        autoFocus
-                        fullWidth={true}
-                        color='secondary'
-                    />
-                                        <TextField
-                       variant='standard'
-                        margin="normal"
-                        required
-                        label="Specification"
-                        name="code"
-                        autoFocus
-                        fullWidth={true}
-                        color='secondary'
-                        multiline
-                        rows={3}
-                        rowsMax={3}
-                    />
-                <br /><br />
-                <Button
-                type='submit'
-                    variant="contained"
-                    color="primary"
-                    style={{ marginRight: '1rem' }}
-                >
-                    Submit
-                </Button>
-                <Button variant="outlined" onClick={closeModal}>
-                    close
-                </Button>
-
-                </form>
+                    <form
+                        noValidate
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            formik.handleSubmit();
+                        }}
+                        autoComplete="off"
+                    >
+                        <TextField
+                            variant="standard"
+                            margin="normal"
+                            required
+                            label="Name"
+                            name="code"
+                            autoFocus
+                            fullWidth={true}
+                            color="secondary"
+                            value={formik.values.name}
+                            onChange={formik.handleChange}
+                            error={
+                                formik.touched.name &&
+                                Boolean(formik.errors.name)
+                            }
+                            helperText={
+                                formik.touched.name && formik.errors.name
+                            }
+                        />
+                        <TextField
+                            variant="standard"
+                            margin="normal"
+                            required
+                            label="Email"
+                            name="code"
+                            autoFocus
+                            fullWidth={true}
+                            color="secondary"
+                            value={formik.values.email}
+                            onChange={formik.handleChange}
+                            error={
+                                formik.touched.email &&
+                                Boolean(formik.errors.email)
+                            }
+                            helperText={
+                                formik.touched.email && formik.errors.email
+                            }
+                        />
+                        <TextField
+                            variant="standard"
+                            margin="normal"
+                            required
+                            label="Company"
+                            name="code"
+                            autoFocus
+                            fullWidth={true}
+                            color="secondary"
+                            value={formik.values.company}
+                            onChange={formik.handleChange}
+                            error={
+                                formik.touched.company &&
+                                Boolean(formik.errors.company)
+                            }
+                            helperText={
+                                formik.touched.company && formik.errors.company
+                            }
+                        />
+                        <TextField
+                            variant="standard"
+                            margin="normal"
+                            required
+                            label="Country"
+                            name="code"
+                            autoFocus
+                            fullWidth={true}
+                            color="secondary"
+                            value={formik.values.country}
+                            onChange={formik.handleChange}
+                            error={
+                                formik.touched.country &&
+                                Boolean(formik.errors.country)
+                            }
+                            helperText={
+                                formik.touched.country && formik.errors.country
+                            }
+                        />
+                        <TextField
+                            variant="standard"
+                            margin="normal"
+                            required
+                            label="City"
+                            name="code"
+                            autoFocus
+                            fullWidth={true}
+                            color="secondary"
+                            value={formik.values.city}
+                            onChange={formik.handleChange}
+                            error={
+                                formik.touched.city &&
+                                Boolean(formik.errors.city)
+                            }
+                            helperText={
+                                formik.touched.city && formik.errors.city
+                            }
+                        />
+                        <TextField
+                            variant="standard"
+                            margin="normal"
+                            required
+                            label="Specification"
+                            name="code"
+                            autoFocus
+                            fullWidth={true}
+                            color="secondary"
+                            multiline
+                            rows={3}
+                            rowsMax={3}
+                            value={formik.values.specification}
+                            onChange={formik.handleChange}
+                            error={
+                                formik.touched.specification &&
+                                Boolean(formik.errors.specification)
+                            }
+                            helperText={
+                                formik.touched.specification &&
+                                formik.errors.specification
+                            }
+                        />
+                        <br />
+                        <br />
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            style={{ marginRight: '1rem' }}
+                        >
+                            Submit
+                        </Button>
+                        <Button variant="outlined" onClick={closeModal}>
+                            close
+                        </Button>
+                    </form>
                 </Container>
             </Modal>
-
-
-
-
-
-
-
         </Container>
     );
 }
