@@ -1,12 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {
-    Container,
-    TextField,
-    Typography,
-    Grid,
-    Paper,
-    Button,
-} from '@material-ui/core';
+import React, { useEffect } from 'react';
+import { Container, Typography, Grid, Paper, Button } from '@material-ui/core';
 
 //To fetch data from params
 import { useParams } from 'react-router';
@@ -43,53 +36,92 @@ function ViewProduct() {
         <ProductsLoader />
     ) : (
         <Container style={{ minHeight: '70vh' }}>
-            <div style={{padding: '6rem 0'}}>
-            <Grid container>
-                <Grid item xs="4">
-                    <Typography variant="h4">{product.data.code}</Typography>{' '}
-                </Grid>
-                <Grid item xs="1"></Grid>
-                <Grid item xs="7">
-                    <Typography variant="h3">{product.data.name}</Typography>
-                </Grid>
-            </Grid>
-            <br />
-            <Grid container>
-                <Grid item md="6">
-                    <Typography variant="h4">Technical Description</Typography>
-                    <Container>
-                        <Typography variant="body1">
-                            {product.data.desc}
+            <div style={{ padding: '6rem 0' }}>
+                <Grid container>
+                    <Grid item xs="4">
+                        <Typography variant="h4">
+                            {product.data.code}
+                        </Typography>{' '}
+                    </Grid>
+                    <Grid item xs="1"></Grid>
+                    <Grid item xs="7">
+                        <Typography variant="h3">
+                            {product.data.name}
                         </Typography>
+                    </Grid>
+                </Grid>
+                <br />
+                <Grid container>
+                    <Grid item md="6">
+                        <Typography variant="h4">
+                            Technical Description
+                        </Typography>
+                        <Container>
+                            <Typography variant="body1">
+                                {product.data.desc}
+                            </Typography>
 
-                        <br />
-                        <br />
-                        <Paper elevation={0} style={{ padding: '0rem' }}>
+                            <br />
+                            <br />
+                            <Paper elevation={0} style={{ padding: '0rem' }}>
+                                <img
+                                    src={product.data.descImg}
+                                    alt="Instrument Description"
+                                    style={{ width: '100%', height: '100%' }}
+                                />
+                            </Paper>
+                            {product.data.optionalImage ? (
+                                <>
+                                    <Paper
+                                        elevation={0}
+                                        style={{ marginTop: '1rem' }}
+                                    >
+                                        <img
+                                            src={product.data.optionalImage}
+                                            alt="Instrument Description"
+                                            style={{
+                                                width: '100%',
+                                                height: '100%',
+                                            }}
+                                        />
+                                    </Paper>{' '}
+                                </>
+                            ) : (
+                                <> </>
+                            )}
+                        </Container>
+                    </Grid>
+                    <Grid item md="2"></Grid>
+                    <Grid item md="4">
+                        <Button
+                            disableFocusRipple
+                            disableTouchRipple
+                            disabled
+                            variant="outlined"
+                            style={{ marginTop: '3rem', width: '100%' }}
+                        >
                             <img
-                                src={product.data.descImg}
-                                alt="Instrument Description"
-                                style={{ width: '100%', height: '100%' }}
+                                src={product.data.itemImg}
+                                alt="Instrument Cover"
+                                style={{ height: '105%', width: '100%' }}
                             />
-                        </Paper>
-                    </Container>
+                        </Button>
+                        <br />
+                        <br />
+                        <Typography
+                            align="center"
+                            style={{ marginTop: '2rem' }}
+                        >
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                size="large"
+                            >
+                                Ask for Quotation
+                            </Button>
+                        </Typography>
+                    </Grid>
                 </Grid>
-                <Grid item md="1"></Grid>
-                <Grid item md="5">
-                    <Button
-                        disableFocusRipple
-                        disableTouchRipple
-                        disabled
-                        variant="outlined"
-                        style={{ marginTop: '3rem' }}
-                    >
-                        <img
-                            src={product.data.itemImg}
-                            alt="Instrument Cover"
-                            style={{ height: '105%', width: '100%' }}
-                        />
-                    </Button>
-                </Grid>
-            </Grid>
             </div>
         </Container>
     );

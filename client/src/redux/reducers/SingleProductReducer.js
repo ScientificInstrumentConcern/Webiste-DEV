@@ -15,7 +15,7 @@ const singleproductReducer = (
             };
         case FETCH_SINGLE_PRODUCT:
             return {
-                loading: true,
+                loading: false,
                 data: action.payload,
             };
         case FETCH_SINGLE_PRODUCT_FAILED:
