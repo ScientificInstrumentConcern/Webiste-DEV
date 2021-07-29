@@ -13,7 +13,8 @@ export const addProduct = (
     name,
     desc,
     instrumentImage,
-    instrumentDesc
+    instrumentDesc,
+    OptioanlImg
 ) => {
     const instrumentdata = {
         code: code,
@@ -21,6 +22,7 @@ export const addProduct = (
         desc: desc,
         itemImg: instrumentImage,
         descImg: instrumentDesc,
+        OptioanlImg: OptioanlImg
     };
     const { data } = axios.post(`${url}/add`, instrumentdata, config);
     return data;
@@ -38,7 +40,8 @@ export const updateProduct = (
     name,
     desc,
     instrumentImage,
-    instrumentDesc
+    instrumentDesc,
+    OptioanlImg
 ) => {
     const instrumentdata = {
         code: code,
@@ -46,6 +49,7 @@ export const updateProduct = (
         desc: desc,
         itemImg: instrumentImage,
         descImg: instrumentDesc,
+        OptioanlImg: OptioanlImg
     };
     axios.put(`${url}/${id}`, instrumentdata, config);
 };

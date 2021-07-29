@@ -24,14 +24,15 @@ import {
  * @description: creates a new instrument in the database
  ***/
 export const createProduct =
-    (code, name, desc, instrumentImage, instrumentDesc) => async (dispatch) => {
+    (code, name, desc, instrumentImage, instrumentDesc, OptioanlImg) => async (dispatch) => {
         try {
             const { data } = await addProduct(
                 code,
                 name,
                 desc,
                 instrumentImage,
-                instrumentDesc
+                instrumentDesc,
+                OptioanlImg
             );
             dispatch({
                 type: CREATE_PRODUCT,

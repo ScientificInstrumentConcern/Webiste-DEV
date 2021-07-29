@@ -44,7 +44,7 @@ export const getSingleInstrument = asyncHandler(async (req, res) => {
  *
  */
 export const createInstrument = asyncHandler(async (req, res) => {
-  const {code, name, desc, itemImg, descImg } = req.body; 
+  const {code, name, desc, itemImg, descImg , optionalImg} = req.body; 
 
   const newInstrument = {
     code: code,
@@ -52,6 +52,7 @@ export const createInstrument = asyncHandler(async (req, res) => {
     desc: desc,
     itemImg: itemImg,
     descImg: descImg,
+    optionalImage : optionalImg
   };
 
   const instrument = new Instrument(newInstrument);

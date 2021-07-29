@@ -21,13 +21,7 @@ import ViewProduct from './components/ViewProduct';
 //Redux stuff
 import { useSelector } from 'react-redux';
 
-//preloader
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import Loader from 'react-loader-spinner';
-
 function App() {
-    //constants
-
     //reduxStuffs
     const { data } = useSelector((state) => state.userLogin);
 
