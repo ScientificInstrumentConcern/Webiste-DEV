@@ -24,6 +24,7 @@ function Newproduct() {
     const [desc, setDesc] = useState('');
     const [instrumentImage, setInstrumentImage] = useState('');
     const [instrumentDesc, setInstrumentDesc] = useState('');
+    const [OptioanlImg, setOptioanlImg] = useState('');
 
     //For Instrument Image link generation
     const ImageLinkGen = async (e) => {
@@ -37,11 +38,17 @@ function Newproduct() {
         const imageLink = await fileUpload(file);
         setInstrumentDesc(imageLink);
     };
+        //For optional Instrument Description link generation
+        const optionalLinkGen = async (e) => {
+            const file = e.target.files[0];
+            const imageLink = await fileUpload(file);
+            setOptioanlImg(imageLink);
+        };
 
     //OnSubmit function dispatch all data to api and render to homepage
     const save = () => {
         dispatch(
-            createProduct(code, name, desc, instrumentImage, instrumentDesc)
+            createProduct(code, name, desc, instrumentImage, instrumentDesc, OptioanlImg)
         );
         history.push('/');
     };
@@ -113,6 +120,15 @@ function Newproduct() {
                         id="Instrument-Image"
                         multiple={false}
                         onChange={DescLinkGen}
+                    />
+                    <Typography variant="h6" htmlFor="Instrument-Image">
+                        Optional Details Image
+                    </Typography>
+                    <input
+                        type="file"
+                        id="Instrument-Image"
+                        multiple={false}
+                        onChange={optionalLinkGen}
                     />
                     <br /> <br />
                     <Button

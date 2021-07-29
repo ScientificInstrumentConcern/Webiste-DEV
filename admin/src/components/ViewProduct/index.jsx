@@ -102,6 +102,9 @@ function ViewProduct() {
         setdelete(false);
     }
 
+
+    console.log(product);
+
     return product.loading ? (
         <ProductsLoader />
     ) : (
@@ -134,6 +137,26 @@ function ViewProduct() {
                                 style={{ width: '100%', height: '100%' }}
                             />
                         </Paper>
+                        
+                        {product.data.optionalImage ? (
+                            <>
+                                <Paper
+                                    elevation={0}
+                                    style={{ marginTop: '1rem' }}
+                                >
+                                    <img
+                                        src={product.data.optionalImage}
+                                        alt="Instrument Description"
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                        }}
+                                    />
+                                </Paper>{' '}
+                            </>
+                        ) : (
+                            <> </>
+                        )}
                     </Container>
                 </Grid>
                 <Grid item md="1"></Grid>
