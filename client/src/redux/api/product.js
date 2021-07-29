@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = `http://localhost:5000/instruments`;
+const url = `https://sincon.herokuapp.com/instruments`;
 
 const config = {
     headers: {

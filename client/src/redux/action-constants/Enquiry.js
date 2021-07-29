@@ -1,0 +1,2 @@
+export const  POST_ENQUIRY = 'POST_ENQUIRY'
+export const  POST_ENQUIRY_FAILED = 'POST_ENQUIRY_FAILED'

@@ -8,7 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleProduct } from '../../redux/action-creators/Product';
 //Firebase file upload function
 import ProductsLoader from '../utils/singleproduct.loader';
-
+//For modal
+import Modal from 'react-modal';
 const customStyles = {
     content: {
         top: '50%',
