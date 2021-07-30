@@ -9,13 +9,12 @@ const config = {
 };
 
 //post enquiry and send mail
-export const postEnquiry = (name , email , company, country, city, specification, instrumentName) =>{
+export const postEnquiry = (name , email , company, country, specification, instrumentName) =>{
 const enquiryData = {
     name: name,
     email: email,
     company: company,
     country: country,
-    city: city,
     specification: specification,
     instrumentName: instrumentName
 };

@@ -6,10 +6,10 @@ import { postEnquiry } from '../api/enquiry.js';
  * Action to post contact us enquiry
  */
 export const EnquiryAction =
-    (name , email , company, country, city, specification, instrumentName) => async (dispatch) => {
+    (name , email , company, country, specification, instrumentName) => async (dispatch) => {
         try {
             const { data } = await postEnquiry(
-                name , email , company, country, city, specification, instrumentName
+                name , email , company, country, specification, instrumentName
             );
             dispatch({
                 type: POST_ENQUIRY,
