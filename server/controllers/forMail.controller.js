@@ -44,14 +44,13 @@ import Enquiry from "../model/enquiry.model.js";
  *
  */
  export const enquireAdmin = asyncHandler(async (req, res) => {
-    const { name, email, company, country, city, specification, instrumentName } = req.body;
+    const { name, email, company, country, specification, instrumentName } = req.body;
   
     const newEnquiry = {
       name: name,
       email: email,
       company: company,
       country: country,
-      city: city,
       specification: specification,
       instrumentName: instrumentName
     };

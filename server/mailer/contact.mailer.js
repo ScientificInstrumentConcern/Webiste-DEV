@@ -6,8 +6,8 @@ const contactMail = (user) => {
 
   const msg = {
     from: "prasundas115@gmail.com",
-    to: "prasun.4.das@gmail.com",
-    subject: "You Have a new Enquiry from SINCON",
+    to: "nripotee@gmail.com",
+    subject: "Someone wants to contact you from SINCON",
     html: `<h2>Someone has placed an enquiry  on your site</h2>
     <p> The enquiry details is as below: </p>
     <br/>
