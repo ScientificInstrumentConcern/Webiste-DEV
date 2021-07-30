@@ -12,11 +12,9 @@ const enquiryMail = (user) => {
     Name: ${user.name},         <br/>
     email: ${user.email},        <br/>
     Company: ${user.company},     <br/>
-    Country: ${user.country},   <br/>
-    City: ${user.city},            <br/>
+    Address: ${user.country},   <br/>
     Specification: ${user.specification}, <br/>
     InstrumentName: ${user.instrumentName}  <br/>
-    
     `,
   };
   sgMail

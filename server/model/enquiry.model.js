@@ -6,7 +6,6 @@ const EnquirySchema = new mongoose.Schema(
     email: String,
     company: String,
     country: String,
-    city: String,
     specification: String,
     instrumentName: String,
   },
