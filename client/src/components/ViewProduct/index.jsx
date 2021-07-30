@@ -70,7 +70,6 @@ function ViewProduct() {
             email: '',
             company: '',
             country: '',
-            city: '',
             specification: '',
             instrumentName: '',
         },
@@ -82,7 +81,6 @@ function ViewProduct() {
                     values.email,
                     values.company,
                     values.country,
-                    values.city,
                     values.specification,
                     product.data.name
 
@@ -101,7 +99,7 @@ function ViewProduct() {
                     <Grid item xs="4">
                         <Typography variant="h4">
                             {product.data.code}
-                        </Typography>{' '}
+                        </Typography>
                     </Grid>
                     <Grid item xs="1"></Grid>
                     <Grid item xs="7">
@@ -200,7 +198,7 @@ function ViewProduct() {
                 </h2>
                 <Container>
                     <form
-                        noValidate
+                       // noValidate
                         onSubmit={(e) => {
                             e.preventDefault();
                             formik.handleSubmit();
@@ -212,7 +210,7 @@ function ViewProduct() {
                             margin="normal"
                             required
                             label="Name"
-                            name="code"
+                            id='name'
                             autoFocus
                             fullWidth={true}
                             color="secondary"
@@ -231,10 +229,9 @@ function ViewProduct() {
                             margin="normal"
                             required
                             label="Email"
-                            name="code"
-                            autoFocus
                             fullWidth={true}
                             color="secondary"
+                            id='email'
                             value={formik.values.email}
                             onChange={formik.handleChange}
                             error={
@@ -250,10 +247,9 @@ function ViewProduct() {
                             margin="normal"
                             required
                             label="Company"
-                            name="code"
-                            autoFocus
                             fullWidth={true}
                             color="secondary"
+                            id='company'
                             value={formik.values.company}
                             onChange={formik.handleChange}
                             error={
@@ -268,11 +264,10 @@ function ViewProduct() {
                             variant="standard"
                             margin="normal"
                             required
-                            label="Country"
-                            name="code"
-                            autoFocus
+                            label="Address"
                             fullWidth={true}
                             color="secondary"
+                            id='country'
                             value={formik.values.country}
                             onChange={formik.handleChange}
                             error={
@@ -287,33 +282,13 @@ function ViewProduct() {
                             variant="standard"
                             margin="normal"
                             required
-                            label="City"
-                            name="code"
-                            autoFocus
-                            fullWidth={true}
-                            color="secondary"
-                            value={formik.values.city}
-                            onChange={formik.handleChange}
-                            error={
-                                formik.touched.city &&
-                                Boolean(formik.errors.city)
-                            }
-                            helperText={
-                                formik.touched.city && formik.errors.city
-                            }
-                        />
-                        <TextField
-                            variant="standard"
-                            margin="normal"
-                            required
                             label="Specification"
-                            name="code"
-                            autoFocus
                             fullWidth={true}
                             color="secondary"
                             multiline
                             rows={3}
                             rowsMax={3}
+                            id='specification'
                             value={formik.values.specification}
                             onChange={formik.handleChange}
                             error={
@@ -326,7 +301,7 @@ function ViewProduct() {
                             }
                         />
                         <br />
-                        <br />
+                        <br />  
                         <Button
                             type="submit"
                             variant="contained"
